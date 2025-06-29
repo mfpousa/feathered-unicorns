@@ -183,7 +183,6 @@ NAME: potatoes24
 NAME: toxicman.216193
 NAME: prussia1862
 NAME: 52kardmagician
-NAME: Bernie2477
 NAME: skylar.duncan.3
 NAME: SoldierMann
 NAME: doodlez
