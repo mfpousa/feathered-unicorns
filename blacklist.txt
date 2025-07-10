@@ -228,7 +228,6 @@ NAME: Seed313
 NAME: Jiggaboo_Jenkins
 NAME: Rust21
 NAME: Weirdwaaazy
-NAME: NovaVR2011
 NAME: Gigglegooner1
 NAME: jeffery.epicstien.2025
 NAME: big_ahh_redneck
