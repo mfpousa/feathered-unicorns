@@ -58,7 +58,7 @@ NAME: DumpsterDiven.Bandit
 NAME: mrnotsogoodguy
 NAME: AloneWolf126
 NAME: TheCreeperBen
-NAME:  Arthur_Morgan_1863
+NAME: Arthur_Morgan_1863
 NAME: Mr.Bonez1
 NAME: Biblecampvictim0
 NAME: FreemanJnr
@@ -258,4 +258,5 @@ NAME: Goon_Official
 NAME: Haver_Of_Autism
 NAME: SMOKEYZZZ_0000
 NAME: hannahlover.23
+NAME: AuBoB23
 L!ListEnd
