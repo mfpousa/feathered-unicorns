@@ -283,7 +283,6 @@ NAME: TFBallistic
 NAME: im.a.vr.berd1989
 NAME: KING.Q23
 NAME: LeslieCrunch
-NAME: TheDoomSlayer420
 NAME: theotheguy167
 NAME: MikeTheOtter
 NAME: BrickJ
