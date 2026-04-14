@@ -1,6 +1,4 @@
 L!ListBegin
-NAME: UE4Editor
-UID: editor
 NAME: Konman1211
 UID: tfvygrbnst0eb
 NAME: VoidWalker113
