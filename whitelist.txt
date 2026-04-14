@@ -1,4 +1,6 @@
 L!ListBegin
+NAME: UE4Editor
+UID: editor
 NAME: manolobiene
 NAME: SCATTER
 NAME: SCATTER_TFVR
