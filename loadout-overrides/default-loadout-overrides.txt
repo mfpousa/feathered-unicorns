@@ -43,7 +43,12 @@ PLAYERS: SCATTER|
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Demo/Demo_IconicHat.Demo_IconicHat_C
-PLAYERS: Iconic|
+PLAYERS: IconicQuest|jcgiybrbpw1dd,IconicPC|zflshtaefx123
+
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
+SLOT: Hat
+ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Solider/Soldier_IconicHat.Soldier_IconicHat_C
+PLAYERS: IconicQuest|jcgiybrbpw1dd,IconicPC|zflshtaefx123
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
@@ -100,10 +105,10 @@ SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrNoBodyDev_Sweater.MrNoBodyDev_Sweater_C
 PLAYERS: Mr.NoBody|
 
-CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
-SLOT: Hat
-ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Solider/Soldier_IconicHat.Soldier_IconicHat_C
-PLAYERS: Iconic|
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
+SLOT: Misc
+ITEM: /Game/Contributions/SoapyHat/ShortnessOfBreathAttachment.ShortnessOfBreathAttachment
+PLAYERS: SoapyQuest|vzdbzepvuala3,SoapyPC|svwdoqecom1fb
 
 --------------------------------------
 #-UNDER DEVELOPMENT (future release)-#
