@@ -5,7 +5,7 @@ GROUP: content_creators
 MEMBERS: 1jack0|hoseipeaec1f7,TakerPC|nsfseqslpu33b,TakerQuest|ojmwamitzr252,AlessAnimates|bxarylausx073,cool.guy|gmnfnhkeuf2c2,TylerTheMasterbaiter|ogvmmqycki37d,NeedleGod|tgouyvgshu1e0,PurpleLova|oqfoobeqjy0de,CreativeUsername|iucdruneio018
 
 GROUP: devs
-MEMBERS: DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039
+MEMBERS: manolobiene|sqcskouvqw032,DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039
 
 -------------
 #-DEV ITEMS-#
