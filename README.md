@@ -55,3 +55,19 @@ You can also reference a group using `@group_name`, and mix groups with individu
 ```
 PLAYERS: @content_creators,@devs,SomeOtherPlayer|uid789
 ```
+
+### Organization & Headers
+
+You can add headers anywhere in the file to keep things readable. The existing style uses dashes and `#` markers:
+
+```
+---------------
+#-MY SECTION-#
+---------------
+```
+
+Any format works as long as it doesn't start with a keyword the parser recognizes (e.g. `CLASS`, `SLOT`, `ITEM`, `PLAYERS`, `GROUP`, `MEMBERS`). Organization is important — keep related overrides grouped and labeled.
+
+### Multiple Override Files
+
+You can create additional override files alongside `default-loadout-overrides.txt` in the `loadout-overrides/` folder. To activate one, reference it in the **GameStateManager** inside the map. This gives you freedom to customize the game in your own map.
