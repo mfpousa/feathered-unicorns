@@ -7,13 +7,16 @@ MEMBERS: UE4Editor|editor,manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk
 GROUP: devs
 MEMBERS: UE4Editor|editor,manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
 
+GROUP: deleteme
+MEMBERS: Someone|someone,SomeoneElse|someoneelse
+
 -------------
 #-DEV ITEMS-#
 -------------
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/RandyDev/Bazaar_Bauble.Bazaar_Bauble_C
-PLAYERS: RandyPickleshoes|,manolobiene|,KUMO|,KsB0|
+PLAYERS: @deleteme,RandyPickleshoes|,manolobiene|,KUMO|,KsB0|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
