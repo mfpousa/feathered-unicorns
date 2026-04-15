@@ -2,7 +2,7 @@
 #-USER GROUPS-#
 ---------------
 GROUP: content_creators
-MEMBERS:  UE4Editor|editor,1jack0|hoseipeaec1f7,TakerPC|nsfseqslpu33b,TakerQuest|ojmwamitzr252,AlessAnimates|bxarylausx073,cool.guy|gmnfnhkeuf2c2,TylerTheMasterbaiter|ogvmmqycki37d,NeedleGod|tgouyvgshu1e0,PurpleLova|oqfoobeqjy0de,CreativeUsername|iucdruneio018,DUCKZ|ewhgmnvfkm21c,QuackBoi|fpftzzdjff27c
+MEMBERS: UE4Editor|editor,1jack0|hoseipeaec1f7,TakerPC|nsfseqslpu33b,TakerQuest|ojmwamitzr252,AlessAnimates|bxarylausx073,cool.guy|gmnfnhkeuf2c2,TylerTheMasterbaiter|ogvmmqycki37d,NeedleGod|tgouyvgshu1e0,PurpleLova|oqfoobeqjy0de,CreativeUsername|iucdruneio018,DUCKZ|ewhgmnvfkm21c,QuackBoi|fpftzzdjff27c
 
 GROUP: devs
 MEMBERS: UE4Editor|editor,manolobiene|sqcskouvqw032,DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039
