@@ -5,7 +5,7 @@ GROUP: content_creators
 MEMBERS: UE4Editor|editor,1jack0|hoseipeaec1f7,TakerPC|nsfseqslpu33b,TakerQuest|ojmwamitzr252,AlessAnimates|bxarylausx073,cool.guy|gmnfnhkeuf2c2,TylerTheMasterbaiter|ogvmmqycki37d,NeedleGod|tgouyvgshu1e0,PurpleLova|oqfoobeqjy0de,CreativeUsername|iucdruneio018,DUCKZ|ewhgmnvfkm21c,QuackBoi|fpftzzdjff27c,engineer|oviuljjjix351,Punk3D|stfmvisqmj294,Astromaj|sqiepxtmrk0b4,BluezAva|sbdtqqfzvk002,Jokoty|lrezeoefzv2d8,Schrampe|homhptnbaf057
 
 GROUP: devs
-MEMBERS: UE4Editor|editor,manolobiene|sqcskouvqw032,DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039,Randy|fbwfssckuv0b9,IconicQuest|jcgiybrbpw1dd,IconicPC|zflshtaefx123,SoapyQuest|vzdbzepvuala3,SoapyPC|svwdoqecom1fb
+MEMBERS: UE4Editor|editor,manolobiene|sqcskouvqw032,DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039,Randy|fbwfssckuv0b9,IconicQuest|jcgiybrbpw1dd,IconicPC|zflshtaefx123,SoapyQuest|vzdbzepvuala3,SoapyPC|svwdoqecom1fb,XFemboy|voxlederon220
 
 -------------
 #-DEV ITEMS-#
