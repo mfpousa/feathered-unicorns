@@ -51,47 +51,47 @@ ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrN
 PLAYERS: Mr.NoBody|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevengie.dipshitdevengie_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevsoldier.dipshitdevsoldier_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevscout.dipshitdevscout_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevmedic.dipshitdevmedic_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevheavy.dipshitdevheavy_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevsniper.dipshitdevsniper_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevdemo.dipshitdevdemo_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Spy/TF2_Spy_HolderInfo.TF2_Spy_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevspy.dipshitdevspy_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevpyro.dipshitdevpyro_C
 PLAYERS: solaris|
 
