@@ -7,21 +7,18 @@ MEMBERS: UE4Editor|editor,manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk
 GROUP: devs
 MEMBERS: UE4Editor|editor,manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
 
-GROUP: deleteme
-MEMBERS: Someone|someone,SomeoneElse|someoneelse
-
 -------------
 #-DEV ITEMS-#
 -------------
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/RandyDev/Bazaar_Bauble.Bazaar_Bauble_C
-PLAYERS: @deleteme,RandyPickleshoes|,manolobiene|evilid,KUMO|,KsB0|
+PLAYERS: RandyPickleshoes|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/BucketOfChickenDev/BucketOfChicken_DevHat.BucketOfChicken_DevHat_C
-PLAYERS: Chicken|,manolobiene|
+PLAYERS: Chicken|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
@@ -31,17 +28,17 @@ PLAYERS: Mellow|
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Sidearm
 ITEM: /Game/Contributions/Kumosreskins/Kumodevshotgun/Kumoshotgun_Soldier1.Kumoshotgun_Soldier1_C
-PLAYERS: KUMO|,manolobiene|
+PLAYERS: KUMO|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/ReCsPanamka/Medic_ReCsPanamka.Medic_ReCsPanamka_C
-PLAYERS: The_ReC|,manolobiene|
+PLAYERS: The_ReC|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/Cosmetics/SCATTER/Demo_SCATTERhats.Demo_SCATTERhats_C
-PLAYERS: SCATTER|,manolobiene|,KUMO|,UE4Editor|editor
+PLAYERS: SCATTER|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
@@ -51,7 +48,7 @@ PLAYERS: Iconic|
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrNoBodyDev.MrNoBodyDev_C
-PLAYERS: Mr.NoBody|,manolobiene|,KUMO|
+PLAYERS: Mr.NoBody|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Misc
@@ -91,12 +88,12 @@ PLAYERS: solaris|
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrNoBodyDev_Sweater.MrNoBodyDev_Sweater_C
-PLAYERS: Mr.NoBody|,manolobiene|
+PLAYERS: Mr.NoBody|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Solider/Soldier_IconicHat.Soldier_IconicHat_C
-PLAYERS: Iconic|,manolobiene|
+PLAYERS: Iconic|
 
 --------------------------------------
 #-UNDER DEVELOPMENT (future release)-#
