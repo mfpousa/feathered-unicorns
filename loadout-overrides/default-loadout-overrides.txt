@@ -5,7 +5,7 @@ GROUP: content_creators
 MEMBERS: UE4Editor|editor,manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,Tylerthemastrbaitr|,Schrampe|,kennyvr118|,jokoty|,Soapyso|,soapyso1|
 
 GROUP: devs
-MEMBERS: UE4Editor|editor,manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
+MEMBERS: DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039
 
 -------------
 #-DEV ITEMS-#
@@ -78,6 +78,16 @@ PLAYERS: solaris|
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevsniper.dipshitdevsniper_C
+PLAYERS: solaris|
+
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
+SLOT: Misc
+ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevdemo.dipshitdevdemo_C
+PLAYERS: solaris|
+
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Spy/TF2_Spy_HolderInfo.TF2_Spy_HolderInfo
+SLOT: Misc
+ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevspy.dipshitdevspy_C
 PLAYERS: solaris|
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
