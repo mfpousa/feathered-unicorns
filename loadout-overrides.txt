@@ -1,314 +1,314 @@
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/Cosmetics/SCATTER/Demo_SCATTERhats.Demo_SCATTERhats_C
 PLAYERS: SCATTER|,manolobiene|,KUMO|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/FakeZatoichi/Demo_HalfZatoichi.Demo_HalfZatoichi_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/HatWithNoName/Demoman_HatWithNoName.Demoman_HatWithNoName_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/Reggaelator/Demoman_Reggaelator.Demoman_Reggaelator_C
 PLAYERS: manolobiene|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/BirdManOfAbredeen/Demoman_BirdManOfAbredeen.Demoman_BirdManOfAbredeen_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|,KUMO|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Demo/Demo_IconicHat.Demo_IconicHat_C
 PLAYERS: lxBowser|,IconicFurStars|,IconicPlushStars|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Demo.Memory_maker_Demo_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,Tylerthemastrbaitr|,Schrampe|,kennyvr118|,jokoty|,soapyso1|,Soapyso|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Sidearm
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Shotgun4others/Shotgun_Demo.Shotgun_Demo_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|
 
-CLASS: Demoman
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/MellowshatDemo/Demo_MellowHat.Demo_MellowHat_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrNoBodyDev.MrNoBodyDev_C
 PLAYERS: Mr.NoBody|,manolobiene|,KUMO|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrNoBodyDev_Sweater.MrNoBodyDev_Sweater_C
 PLAYERS: Mr.NoBody|,manolobiene|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/TruckersTopper/Engineer_TruckersTopper.Engineer_TruckersTopper_C
 PLAYERS: manolobiene|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/HatWithNoName/Engineer_HatWithNoName.Engineer_HatWithNoName_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/MoreGunMarshal/Engineer_MoreGunMarshal.Engineer_MoreGunMarshal_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/Eingineer/Engineer_Eingineer.Engineer_Eingineer_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_engie.Memory_maker_engie_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,jokoty|,kennyvr118|,Schrampe|,Tylerthemastrbaitr|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,soapyso1|,Soapyso|
 
-CLASS: Engineer
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevengie.dipshitdevengie_C
 PLAYERS: solaris|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/FakeZatoichi/Soldier_HalfZatoichi.Soldier_HalfZatoichi_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/RandyDev/Bazaar_Bauble.Bazaar_Bauble_C
 PLAYERS: RandyPickleshoes|,manolobiene|,KUMO|,KsB0|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/TeamCaptain/Soldier_TeamCaptain.Soldier_TeamCaptain_C
 PLAYERS: manolobiene|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/HatWithNoName/Soldier_HatWithNoName.Soldier_HatWithNoName_C
 PLAYERS: manolobiene|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/SoldiersStash/Soldier_Stash.Soldier_Stash_C
 PLAYERS: manolobiene|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Solider/Soldier_IconicHat.Soldier_IconicHat_C
 PLAYERS: lxBowser|,manolobiene|,IconicPlushStars|,IconicFurStars|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Sidearm
 ITEM: /Game/Contributions/Kumosreskins/Kumodevshotgun/Kumoshotgun_Soldier1.Kumoshotgun_Soldier1_C
 PLAYERS: KUMO|,manolobiene|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Soldier.Memory_maker_Soldier_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,Tylerthemastrbaitr|,Schrampe|,kennyvr118|,Soapyso|,jokoty|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Sidearm
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/Soldierbackpacks/BASE_Jumper/BaseJumper.BaseJumper_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicPlushStars|,IconicFurStars|
 
-CLASS: Soldier
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevsoldier.dipshitdevsoldier_C
 PLAYERS: solaris|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/Cosmetics/BrimmedBootlegger/Scout_BrimmedBootlegger.Scout_BrimmedBootlegger_C
 PLAYERS: manolobiene|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/TruckersTopper/Scout_TruckersTopper.Scout_TruckersTopper_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/BucketOfChickenDev/BucketOfChicken_DevHat.BucketOfChicken_DevHat_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/ThirstBlood/Scout_ThirstBlood.Scout_ThirstBlood_C
 PLAYERS: manolobiene|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/Cosmetics/CrossCommExpress/Scout_CrossCommExpress.Scout_CrossCommExpress_C
 PLAYERS: manolobiene|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/BattersBeak/Scout_BattersBeak.Scout_BattersBeak_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|,KUMO|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Scout.Memory_maker_Scout_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,jokoty|,kennyvr118|,Schrampe|,soapyso1|,Soapyso|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|
 
-CLASS: Scout
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevscout.dipshitdevscout_C
 PLAYERS: solaris|
 
-CLASS: Medic
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/TeamCaptain/Medic_TeamCaptain.Medic_TeamCaptain_C
 PLAYERS: manolobiene|
 
-CLASS: Medic
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/Medimedes/Medic_Medimedes.Medic_Medimedes_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,The_ReC|,soapyso1|,Soapyso|
 
-CLASS: Medic
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/ReCsPanamka/Medic_ReCsPanamka.Medic_ReCsPanamka_C
 PLAYERS: The_ReC|,manolobiene|
 
-CLASS: Medic
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Medic.Memory_maker_Medic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,Tylerthemastrbaitr|,Schrampe|,kennyvr118|,Soapyso|,soapyso1|,jokoty|
 
-CLASS: Medic
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Primary
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Shotgun4others/Shotgun_medic.Shotgun_medic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,soapyso1|,Soapyso|
 
-CLASS: Medic
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|
 
-CLASS: Medic
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevmedic.dipshitdevmedic_C
 PLAYERS: solaris|
 
-CLASS: Heavy
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/TeamCaptain/Heavy_TeamCaptain.Heavy_TeamCaptain_C
 PLAYERS: manolobiene|
 
-CLASS: Heavy
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/ChickenKiev/Heavy_ChickenKiev.Heavy_ChickenKiev_C
 PLAYERS: manolobiene|
 
-CLASS: Heavy
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Heavy.Memory_maker_Heavy_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,jokoty|,kennyvr118|,Schrampe|,Tylerthemastrbaitr|,Soapyso|,soapyso1|
 
-CLASS: Heavy
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Fists/Fists.Fists_C
 PLAYERS: manolobiene|,KUMO|
 
-CLASS: Heavy
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|
 
-CLASS: Heavy
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevheavy.dipshitdevheavy_C
 PLAYERS: solaris|
 
-CLASS: Sniper
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/HatWithNoName/Sniper_HatWithNoName.Sniper_HatWithNoName_C
 PLAYERS: manolobiene|
 
-CLASS: Sniper
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Sidearm
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Jarate/Jarate.Jarate_C
 PLAYERS: manolobiene|
 
-CLASS: Sniper
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Sniper.Memory_maker_Sniper_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,Tylerthemastrbaitr|,Schrampe|,kennyvr118|,jokoty|,soapyso1|,Soapyso|
 
-CLASS: Sniper
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Sidearm
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Shotgun4others/Shotgun_sniper.Shotgun_sniper_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
 
-CLASS: Sniper
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|
 
-CLASS: Sniper
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevsniper.dipshitdevsniper_C
 PLAYERS: solaris|
 
-CLASS: Pyro
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/Cosmetics/NappersRespite/Pyro_NappersRespite.Pyro_NappersRespite_C
 PLAYERS: manolobiene|
 
-CLASS: Pyro
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/MiamiRooster/Pyro_MiamiRooster.Pyro_MiamiRooster_C
 PLAYERS: manolobiene|
 
-CLASS: Pyro
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_pyro.Memory_maker_pyro_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,soapyso1|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,jokoty|,kennyvr118|,Schrampe|,Tylerthemastrbaitr|,soapyso1|
 
-CLASS: Pyro
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Devreskin/Bion/Bion_cosmitic.Bion_cosmitic_C
 PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|
 
-CLASS: Pyro
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevpyro.dipshitdevpyro_C
 PLAYERS: solaris|
