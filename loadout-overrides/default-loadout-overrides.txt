@@ -2,7 +2,7 @@
 #-USER GROUPS-#
 ---------------
 GROUP: content_creators
-MEMBERS: UE4Editor|editor,manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,DarkstrifeYT|,Needle_God|,chumby_vr|,JellOTheProtato|,Minty.qz|,Blueb3rryy|,Carderp|,LtShabba|,Quack_boi|,Lost_in_the_walls|,ballsstealer|,thighsenberg|,SteamoniteToppin|,wokgeta|,Shadee3445|,PURPLE_LOVA|,The_ReC|,AWDUCKZ|,Astromaj7575|,CreativeUsername0|,DUnity_MD|,coolguy.1121|,engineer_gaming67|,1LordMelon1|,JackandMatt|,Forsaken.Elliot|,Uncle Carl|,maxblueninja1|,TheMrchickenman|,RBKVA|,lxBowser|,IconicPlushStars|,IconicFurStars|,Tylerthemastrbaitr|,Schrampe|,kennyvr118|,jokoty|,Soapyso|,soapyso1|
+MEMBERS: 1jack0|hoseipeaec1f7,TakerPC|nsfseqslpu33b,TakerQuest|ojmwamitzr252,AlessAnimates|bxarylausx073,cool.guy|gmnfnhkeuf2c2,TylerTheMasterbaiter|ogvmmqycki37d,NeedleGod|tgouyvgshu1e0,PurpleLova|oqfoobeqjy0de,CreativeUsername|iucdruneio018
 
 GROUP: devs
 MEMBERS: DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039
@@ -166,7 +166,7 @@ PLAYERS: @devs
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/ChickenKiev/Heavy_ChickenKiev.Heavy_ChickenKiev_C
-PLAYERS: manolobiene|
+PLAYERS: @devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Hat
@@ -239,42 +239,42 @@ PLAYERS: @devs
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Demo.Memory_maker_Demo_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_engie.Memory_maker_engie_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Soldier.Memory_maker_Soldier_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Scout.Memory_maker_Scout_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Medic.Memory_maker_Medic_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Heavy.Memory_maker_Heavy_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_Sniper.Memory_maker_Sniper_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_pyro.Memory_maker_pyro_C
-PLAYERS: @content_creators
+PLAYERS: @content_creators,@devs
 
 --------------------------
 #-WEAPON RESKINS / MEMES-#
