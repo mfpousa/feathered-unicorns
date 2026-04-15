@@ -1,4 +1,4 @@
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
-SLOT: Primary
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/RandyDev/Bazaar_Bauble.Bazaar_Bauble_C
 PLAYERS: UE4Editor|editor
