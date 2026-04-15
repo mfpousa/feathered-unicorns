@@ -1,12 +1,12 @@
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/Cosmetics/SCATTER/Demo_SCATTERhats.Demo_SCATTERhats_C
-PLAYERS: SCATTER|,manolobiene|,KUMO|
+PLAYERS: SCATTER|,manolobiene|,KUMO|,UE4Editor|editor
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/FakeZatoichi/Demo_HalfZatoichi.Demo_HalfZatoichi_C
-PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|
+PLAYERS: manolobiene|,SCATTER|,Mr.NoBody|,RandyPickleshoes|,Ryk3z |,Ryk3zz|,Bucket Of Chicken|,Jonny|,Neuron.Extractor|,KUMO|,Ethan Bradberry|,SlimesMcDingle|,MellowBomb|,SCATTER [TFVR]|,VixianUwU|,SquashedPillow|,Demo-Goblin|,lxBowser|,TheMechOfGames|,SonicEdan64|,The_ReC|,KsB0|,IconicFurStars|,IconicPlushStars|,Soapyso|,soapyso1|,UE4Editor|editor
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
