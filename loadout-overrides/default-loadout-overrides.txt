@@ -1,114 +1,105 @@
----------------
-#-USER GROUPS-#
----------------
-GROUP: content_creators
-MEMBERS: UE4Editor|editor,1jack0|hoseipeaec1f7,TakerPC|nsfseqslpu33b,TakerQuest|ojmwamitzr252,AlessAnimates|bxarylausx073,cool.guy|gmnfnhkeuf2c2,TylerTheMasterbaiter|ogvmmqycki37d,NeedleGod|tgouyvgshu1e0,PurpleLova|oqfoobeqjy0de,CreativeUsername|iucdruneio018,DUCKZ|ewhgmnvfkm21c,QuackBoi|fpftzzdjff27c,engineer|oviuljjjix351,Punk3D|stfmvisqmj294,Astromaj|sqiepxtmrk0b4,BluezAva|sbdtqqfzvk002,Jokoty|lrezeoefzv2d8,Schrampe|homhptnbaf057,Kenny|ggipjxtudu39e,JellOThePotato|ndwqmtlamv136
-
-GROUP: devs
-MEMBERS: UE4Editor|editor,manolobiene|sqcskouvqw031,DemoGoblin|sirdwaqeog24f,Solairs|elwzytngvi039,Randy|fbwfssckuv0b9,IconicQuest|jcgiybrbpw1dd,IconicPC|zflshtaefx123,SoapyQuest|vzdbzepvuala3,SoapyPC|svwdoqecom1fb,XFemboy|voxlederon220
-
 -------------
 #-DEV ITEMS-#
 -------------
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/RandyDev/Bazaar_Bauble.Bazaar_Bauble_C
-PLAYERS: RandyPickleshoes|
+PLAYERS: RandyPickleshoes
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/BucketOfChickenDev/BucketOfChicken_DevHat.BucketOfChicken_DevHat_C
-PLAYERS: Chicken|
+PLAYERS: Chicken
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/MellowshatDemo/Demo_MellowHat.Demo_MellowHat_C
-PLAYERS: Mellow|
+PLAYERS: Mellow
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Sidearm
 ITEM: /Game/Contributions/Kumosreskins/Kumodevshotgun/Kumoshotgun_Soldier1.Kumoshotgun_Soldier1_C
-PLAYERS: KUMO|
+PLAYERS: KUMO
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/ReCsPanamka/Medic_ReCsPanamka.Medic_ReCsPanamka_C
-PLAYERS: The_ReC|
+PLAYERS: The_ReC
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/Cosmetics/SCATTER/Demo_SCATTERhats.Demo_SCATTERhats_C
-PLAYERS: SCATTER|
+PLAYERS: SCATTER
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Demo/Demo_IconicHat.Demo_IconicHat_C
-PLAYERS: IconicQuest|jcgiybrbpw1dd,IconicPC|zflshtaefx123
+PLAYERS: IconicQuest,IconicPC
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/IconicsDevCosmetic/Solider/Soldier_IconicHat.Soldier_IconicHat_C
-PLAYERS: IconicQuest|jcgiybrbpw1dd,IconicPC|zflshtaefx123
+PLAYERS: IconicQuest,IconicPC
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrNoBodyDev.MrNoBodyDev_C
-PLAYERS: Mr.NoBody|
+PLAYERS: Mr.NoBody
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevengie.dipshitdevengie_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevsoldier.dipshitdevsoldier_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevscout.dipshitdevscout_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevmedic.dipshitdevmedic_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevheavy.dipshitdevheavy_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevsniper.dipshitdevsniper_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevdemo.dipshitdevdemo_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Spy/TF2_Spy_HolderInfo.TF2_Spy_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevspy.dipshitdevspy_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/dipshithat/devonlyver/dipshitdevpyro.dipshitdevpyro_C
-PLAYERS: solaris|
+PLAYERS: solaris
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrNoBodyDev_Sweater.MrNoBodyDev_Sweater_C
-PLAYERS: Mr.NoBody|
+PLAYERS: Mr.NoBody
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Misc
 ITEM: /Game/Contributions/SoapyHat/ShortnessOfBreathAttachment.ShortnessOfBreathAttachment
-PLAYERS: SoapyQuest|vzdbzepvuala3,SoapyPC|svwdoqecom1fb
+PLAYERS: SoapyQuest,SoapyPC
 
 --------------------------------------
 #-UNDER DEVELOPMENT (future release)-#

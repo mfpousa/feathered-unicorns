@@ -1,0 +1,73 @@
+-------------
+#region USERS
+-------------
+NAME: UE4Editor
+UID: editor
+NAME: 1jack0
+UID: hoseipeaec1f7
+NAME: TakerPC
+UID: nsfseqslpu33b
+NAME: TakerQuest
+UID: ojmwamitzr252
+NAME: AlessAnimates
+UID: bxarylausx073
+NAME: cool.guy
+UID: gmnfnhkeuf2c2
+NAME: TylerTheMasterbaiter
+UID: ogvmmqycki37d
+NAME: NeedleGod
+UID: tgouyvgshu1e0
+NAME: PurpleLova
+UID: oqfoobeqjy0de
+NAME: CreativeUsername
+UID: iucdruneio018
+NAME: DUCKZ
+UID: ewhgmnvfkm21c
+NAME: QuackBoi
+UID: fpftzzdjff27c
+NAME: engineer
+UID: oviuljjjix351
+NAME: Punk3D
+UID: stfmvisqmj294
+NAME: Astromaj
+UID: sqiepxtmrk0b4
+NAME: BluezAva
+UID: sbdtqqfzvk002
+NAME: Jokoty
+UID: lrezeoefzv2d8
+NAME: Schrampe
+UID: homhptnbaf057
+NAME: Kenny
+UID: ggipjxtudu39e
+NAME: JellOThePotato
+UID: ndwqmtlamv136
+NAME: manolobiene
+UID: sqcskouvqw031
+NAME: DemoGoblin
+UID: sirdwaqeog24f
+NAME: Solairs
+UID: elwzytngvi039
+NAME: Randy
+UID: fbwfssckuv0b9
+NAME: IconicQuest
+UID: jcgiybrbpw1dd
+NAME: IconicPC
+UID: zflshtaefx123
+NAME: SoapyQuest
+UID: vzdbzepvuala3
+NAME: SoapyPC
+UID: svwdoqecom1fb
+NAME: XFemboy
+UID: voxlederon220
+
+#endregion
+
+-------------
+#region GROUPS
+-------------
+GROUP: content_creators
+MEMBERS: UE4Editor,1jack0,TakerPC,TakerQuest,AlessAnimates,cool.guy,TylerTheMasterbaiter,NeedleGod,PurpleLova,CreativeUsername,DUCKZ,QuackBoi,engineer,Punk3D,Astromaj,BluezAva,Jokoty,Schrampe,Kenny,JellOThePotato
+GROUP: devs
+MEMBERS: UE4Editor,manolobiene,DemoGoblin,Solairs,Randy,IconicQuest,IconicPC,SoapyQuest,SoapyPC,XFemboy
+
+#endregion
