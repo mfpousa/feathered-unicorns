@@ -1,8 +1,6 @@
--------------
+﻿-------------
 #region USERS
 -------------
-NAME: UE4Editor
-UID: editor
 NAME: 1jack0
 UID: hoseipeaec1f7
 NAME: TakerPC
@@ -41,8 +39,6 @@ NAME: Kenny
 UID: ggipjxtudu39e
 NAME: JellOThePotato
 UID: ndwqmtlamv136
-NAME: manolobiene
-UID: sqcskouvqw031
 NAME: DemoGoblin
 UID: sirdwaqeog24f
 NAME: Solairs
@@ -143,6 +139,10 @@ NAME: Normie101
 UID: piigwemmuc039
 NAME: 14KEGAN
 UID: acypvnluwr3fb
+NAME: UE4Editor
+UID: editor
+NAME: manolobiene
+UID: sqcskouvqw031
 
 #endregion
 
@@ -151,8 +151,8 @@ UID: acypvnluwr3fb
 -------------
 GROUP: content_creators
 MEMBERS: UE4Editor,1jack0,TakerPC,TakerQuest,AlessAnimates,cool.guy,TylerTheMasterbaiter,NeedleGod,PurpleLova,CreativeUsername,DUCKZ,QuackBoi,engineer,Punk3D,Astromaj,BluezAva,Jokoty,Schrampe,Kenny,JellOThePotato
-GROUP: devs
-MEMBERS: UE4Editor,manolobiene,DemoGoblin,Solairs,Randy,IconicQuest,IconicPC,SoapyQuest,SoapyPC,XFemboy
 GROUP: testers
 MEMBERS: UE4Editor,teh.saint,1jack0,Borked Emerald,BarpleBapkins,MercuryNix1,TakerQuest,TakerPC,The_exquisite_crow,I HATE MY WIFE,Punk3D,Schrampe,AlessAnimates,QuackBoi,AWDUCKZ,wokgeta,Jason_a_c,Sajkokiller,Doublezoinks,NeedleGod,Penapeanut4,DemoGoblin,engineer,Lennox0,femboykisser1,CrazyMan616,Solairs,PurplePotato,plushiej20,JohnTheBunny,tinyblood,chumby_vr,Oatsy-Jr,theyoinkysploinky,bustermp,MercuryNix1,Yourepissing,Noelle_Holiday,maxblueninja1,wrenchwielder220,Spingle_Blab,SGT_JOHN_RAMBO,TypedTim,Skytheprotogens,1LuckyLo,Unknowings,Lime The Sliced!,Maj._Problem,BraydenisOrange,space_or,lime.263484,PURPLE_LOVA,StalkrZ,Normie101,CreativeUsername,14KEGAN,manolobiene
+GROUP: devs
+MEMBERS: UE4Editor,manolobiene,DemoGoblin,Solairs,Randy,IconicQuest,IconicPC,SoapyQuest,SoapyPC,XFemboy
 #endregion

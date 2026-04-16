@@ -24,7 +24,7 @@ function Write-Section($title) {
 
 Write-Section "Parsing users.txt"
 
-$usersFile  = "$PSScriptRoot\users.txt"
+$usersFile  = "$PSScriptRoot\..\users.txt"
 $usersLines = Get-Content $usersFile
 
 $users  = @{}   # name -> uid
@@ -106,7 +106,7 @@ foreach ($group in $groups.GetEnumerator()) {
 
 Write-Section "Checking loadout-overrides"
 
-$overrideFiles = Get-ChildItem "$PSScriptRoot\loadout-overrides\*.txt"
+$overrideFiles = Get-ChildItem "$PSScriptRoot\..\loadout-overrides\*.txt"
 
 foreach ($file in $overrideFiles) {
     Write-Host "  Checking: $($file.Name)"
