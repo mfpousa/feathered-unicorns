@@ -15,15 +15,6 @@ UID: playeruid123
 
 A `PUNISHMENT` field can be added to apply a specific penalty (e.g. `PUNISHMENT: MUTE`) instead of a full ban.
 
-## Whitelist (`whitelist.txt`)
-
-Only players on the whitelist are allowed to join test builds. Add entries the same way as the blacklist:
-
-```
-NAME: PlayerName
-UID: playeruid123
-```
-
 ## Loadout Overrides (`loadout-overrides/`)
 
 Overrides let you give players exclusive items. Here's where we include dev cosmetics for example.
