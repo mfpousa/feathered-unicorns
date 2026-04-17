@@ -383,49 +383,55 @@ PLAYERS: @devs
 TAG: WEAPON RESKINS / MEMES
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: UE4Editor,@devs,Tojo
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: @devs,Tojo,UE4Editor
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Heavy/TF2_Heavy_HolderInfo.TF2_Heavy_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: Tojo,@devs,UE4Editor
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Medic/TF2_Medic_HolderInfo.TF2_Medic_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: Tojo,@devs,UE4Editor
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: @devs,Tojo,UE4Editor
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: @devs,Tojo,UE4Editor
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: @devs,Tojo,UE4Editor
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: Tojo,@devs,UE4Editor
+TAG: DEV ITEMS
+
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Spy/TF2_Spy_HolderInfo.TF2_Spy_HolderInfo
+SLOT: Hat
+ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
+PLAYERS: @devs,Tojo,UE4Editor
 TAG: DEV ITEMS
