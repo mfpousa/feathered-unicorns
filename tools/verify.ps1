@@ -348,10 +348,10 @@ while ($blI -lt $blacklistLines.Count) {
             }
 
             # --- END_DATE validation ---
-            if ($null -ne $blEndDate -and $blEndDate -ne '') {
+            if ($null -ne $blEndDate -and $blEndDate -ne '' -and $blEndDate -ne '0') {
                 $blEndDateVal = [int64]0
                 if (-not [int64]::TryParse($blEndDate, [ref]$blEndDateVal)) {
-                    Write-Issue 'ERROR' "blacklist.txt line $blLineNum : '$blName' has invalid END_DATE '$blEndDate' (must be a Unix timestamp)"
+                    Write-Issue 'ERROR' "blacklist.txt line $blLineNum : '$blName' has invalid END_DATE '$blEndDate' (must be a Unix timestamp or 0 for permanent)"
                 } elseif ($blEndDateVal -le $blNowUnix) {
                     $expiredDt = $blEpoch.AddSeconds($blEndDateVal).ToLocalTime()
                     Write-Issue 'WARN' "blacklist.txt line $blLineNum : '$blName' ban expired on $($expiredDt.ToString('yyyy-MM-dd HH:mm'))"
@@ -448,7 +448,7 @@ while ($blK -lt $blacklistLines.Count) {
             $blKEnd = $k
             if ($kl -match '^END_DATE:\s*(.+)') { $blKEndDate = $Matches[1].Trim() }
         }
-        if ($null -ne $blKEndDate) {
+        if ($null -ne $blKEndDate -and $blKEndDate -ne '0') {
             $blKVal = [int64]0
             if ([int64]::TryParse($blKEndDate, [ref]$blKVal) -and $blKVal -le $blNowUnix) {
                 for ($k = $blK; $k -le $blKEnd; $k++) { $blExpiredLines.Add($k) }
