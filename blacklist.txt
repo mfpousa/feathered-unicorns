@@ -1,4 +1,4 @@
-﻿L!ListBegin
+L!ListBegin
 NAME: THE_BOSS
 UID: sqcskouvqw031
 PUNISHMENT: MUTE
