@@ -1185,7 +1185,7 @@ function Get-UnixNow {
 }
 
 function Format-UnixDate([string]$ts) {
-    if ($ts -eq '' -or $null -eq $ts) { return 'permanent' }
+    if ($ts -eq '' -or $ts -eq '0' -or $null -eq $ts) { return 'permanent' }
     try {
         $epoch = [datetime]'1970-01-01T00:00:00Z'
         $dt = $epoch.AddSeconds([int64]$ts).ToLocalTime()
@@ -1220,7 +1220,7 @@ function Save-Blacklist {
         $lines.Add("NAME: $($e.Name)")
         $lines.Add("UID: $($e.Uid)")
         if ($e.Punishment -ne '') { $lines.Add("PUNISHMENT: $($e.Punishment)") }
-        if ($e.Reason     -ne '') { $lines.Add("REASON: $($e.Reason)") }
+        $lines.Add("REASON: $($e.Reason)")
         if ($e.EndDate    -ne '') { $lines.Add("END_DATE: $($e.EndDate)") }
     }
     $lines.Add('L!ListEnd')
@@ -1231,7 +1231,7 @@ function Format-BlacklistLabel($e) {
     $meta = @()
     if ($e.Punishment -ne '') { $meta += $e.Punishment }
     if ($e.Reason     -ne '') { $meta += $e.Reason }
-    if ($e.EndDate    -ne '') { $meta += "until $(Format-UnixDate $e.EndDate)" }
+    if ($e.EndDate -ne '' -and $e.EndDate -ne '0') { $meta += "until $(Format-UnixDate $e.EndDate)" }
     if ($meta.Count -gt 0) { "$($e.Name)  [$($meta -join ' | ')]" }
     else                   { $e.Name }
 }
@@ -1246,7 +1246,7 @@ function Pick-EndDate {
     )
     $idx = Show-Menu 'Pick ban duration' $options
     if ($idx -lt 0) { return $null }
-    if ($idx -eq 0) { return '' }
+    if ($idx -eq 0) { return '0' }
 
     $dayTable = @(0, 1, 3, 7, 14, 30, 60, 90)
     $days = 0
@@ -1269,7 +1269,7 @@ function Pick-EndDate {
         else                     { $days = $num * 30 }
     }
 
-    if ($days -le 0) { return '' }
+    if ($days -le 0) { return '0' }
     [string](( Get-UnixNow) + [int64]$days * 86400)
 }
 
@@ -1310,7 +1310,7 @@ function Blacklist-Wizard($entry) {
     # END_DATE
     $dateChoice = Show-Menu 'End date' @('Permanent', 'Set duration')
     if ($dateChoice -lt 0) { return $false }
-    $newEndDate = ''
+    $newEndDate = '0'
     if ($dateChoice -eq 1) {
         $picked = Pick-EndDate
         if ($null -eq $picked) { return $false }
@@ -1339,7 +1339,7 @@ function Blacklist-Actions($idx) {
         $e         = $script:blacklist[$idx]
         $punLabel  = if ($e.Punishment -ne '') { $e.Punishment } else { '(none)' }
         $resLabel  = if ($e.Reason     -ne '') { $e.Reason }     else { '(none)' }
-        $dateLabel = if ($e.EndDate    -ne '') { Format-UnixDate $e.EndDate } else { 'permanent' }
+        $dateLabel = if ($e.EndDate -ne '' -and $e.EndDate -ne '0') { Format-UnixDate $e.EndDate } else { 'permanent' }
         $uidLabel  = if ($e.Uid        -ne '') { $e.Uid }        else { '(none)' }
         $menuItems = @(
             "Name:        $($e.Name)",
@@ -1399,7 +1399,7 @@ function Blacklist-Actions($idx) {
                     $picked = Pick-EndDate
                     if ($null -ne $picked) { $script:blacklist[$idx].EndDate = $picked; Save-Blacklist; Show-Status 'End date updated.' }
                 } elseif ($dateChoice -eq 2) {
-                    $script:blacklist[$idx].EndDate = ''; Save-Blacklist; Show-Status 'End date cleared.'
+                    $script:blacklist[$idx].EndDate = '0'; Save-Blacklist; Show-Status 'End date cleared (permanent).'
                 }
             }
             5 {
