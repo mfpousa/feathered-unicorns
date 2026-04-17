@@ -1263,12 +1263,10 @@ function Pick-EndDate {
     [string](( Get-UnixNow) + [int64]$days * 86400)
 }
 
-function Blacklist-EditFields($entry) {
-    # Edits $entry hashtable in-place. Returns $true if saved, $false if cancelled.
+function Blacklist-Wizard($entry) {
+    # Sequential wizard used only when creating a new entry. Returns $true if saved.
     Clear-Host
-    $isNew = ($entry.Name -eq '')
-    $editTitle = if ($isNew) { 'Add Blacklist Entry' } else { "Edit: $($entry.Name)" }
-    Write-At 2 1 $editTitle Cyan
+    Write-At 2 1 'Add Blacklist Entry' Cyan
     Write-At 2 2 'Esc on any field cancels.' DarkGray
 
     # NAME
@@ -1289,41 +1287,24 @@ function Blacklist-EditFields($entry) {
 
     # PUNISHMENT
     $punishments = @('(none)', 'BAN', 'MUTE', 'WARN')
-    $curPunIdx   = if ($entry.Punishment -eq '') { 1 } else { [Array]::IndexOf($punishments, $entry.Punishment) }
-    if ($curPunIdx -lt 0) { $curPunIdx = 1 }
-    $curPunLabel = if ($entry.Punishment -ne '') { $entry.Punishment } else { 'none' }
-    $punIdx = Show-Menu "Punishment  (current: $curPunLabel)" $punishments
+    $punIdx = Show-Menu 'Punishment' $punishments '' 1
     if ($punIdx -lt 0) { return $false }
     $newPunishment = if ($punIdx -eq 0) { '' } else { $punishments[$punIdx] }
 
     # REASON
-    $reasons    = @('(none)', 'BAN_EVADING', 'TOXICITY', 'HARASSMENT')
-    $curResIdx  = if ($entry.Reason -eq '') { 0 } else { [Array]::IndexOf($reasons, $entry.Reason) }
-    if ($curResIdx -lt 0) { $curResIdx = 0 }
-    $curResLabel = if ($entry.Reason -ne '') { $entry.Reason } else { 'none' }
-    $resIdx = Show-Menu "Reason  (current: $curResLabel)" $reasons
+    $reasons = @('(none)', 'BAN_EVADING', 'TOXICITY', 'HARASSMENT')
+    $resIdx  = Show-Menu 'Reason' $reasons
     if ($resIdx -lt 0) { return $false }
     $newReason = if ($resIdx -eq 0) { '' } else { $reasons[$resIdx] }
 
     # END_DATE
-    $curDateLabel = if ($entry.EndDate -ne '') { "current: $(Format-UnixDate $entry.EndDate)" } else { 'currently permanent' }
-    $dateOpts = if ($isNew) { @('Permanent', 'Set duration') } else { @('Keep current', 'Set new duration', 'Clear (permanent)') }
-    $dateChoice = Show-Menu "End date  ($curDateLabel)" $dateOpts
+    $dateChoice = Show-Menu 'End date' @('Permanent', 'Set duration')
     if ($dateChoice -lt 0) { return $false }
-
-    $newEndDate = $entry.EndDate
-    if ($isNew) {
-        if ($dateChoice -eq 1) {
-            $picked = Pick-EndDate
-            if ($null -eq $picked) { return $false }
-            $newEndDate = $picked
-        } else { $newEndDate = '' }
-    } else {
-        if ($dateChoice -eq 1) {
-            $picked = Pick-EndDate
-            if ($null -eq $picked) { return $false }
-            $newEndDate = $picked
-        } elseif ($dateChoice -eq 2) { $newEndDate = '' }
+    $newEndDate = ''
+    if ($dateChoice -eq 1) {
+        $picked = Pick-EndDate
+        if ($null -eq $picked) { return $false }
+        $newEndDate = $picked
     }
 
     $entry.Name       = $newName
@@ -1336,7 +1317,7 @@ function Blacklist-EditFields($entry) {
 
 function Blacklist-Create {
     $entry = @{ Name = ''; Uid = ''; Punishment = ''; Reason = ''; EndDate = '' }
-    $saved = Blacklist-EditFields $entry
+    $saved = Blacklist-Wizard $entry
     if (-not $saved -or $entry.Name -eq '') { return }
     $script:blacklist.Add($entry)
     Save-Blacklist
@@ -1345,17 +1326,73 @@ function Blacklist-Create {
 
 function Blacklist-Actions($idx) {
     while ($true) {
-        $e     = $script:blacklist[$idx]
-        $label = Format-BlacklistLabel $e
-        $sub   = if ($e.Uid -ne '') { "UID: $($e.Uid)" } else { 'No UID' }
-        $c = Show-Menu $label @('Edit', 'Delete', '< Back') $sub
+        $e         = $script:blacklist[$idx]
+        $punLabel  = if ($e.Punishment -ne '') { $e.Punishment } else { '(none)' }
+        $resLabel  = if ($e.Reason     -ne '') { $e.Reason }     else { '(none)' }
+        $dateLabel = if ($e.EndDate    -ne '') { Format-UnixDate $e.EndDate } else { 'permanent' }
+        $uidLabel  = if ($e.Uid        -ne '') { $e.Uid }        else { '(none)' }
+        $menuItems = @(
+            "Name:        $($e.Name)",
+            "UID:         $uidLabel",
+            "Punishment:  $punLabel",
+            "Reason:      $resLabel",
+            "End date:    $dateLabel",
+            'Delete',
+            '< Back'
+        )
+        $c = Show-Menu (Format-BlacklistLabel $e) $menuItems
         switch ($c) {
-            -1 { return } 2 { return }
+            -1 { return }
+            6  { return }
             0 {
-                $saved = Blacklist-EditFields $e
-                if ($saved) { Save-Blacklist; Show-Status "Saved '$($e.Name)'." }
+                Clear-Host
+                $newName = $null
+                while ($true) {
+                    Clear-Region 2 7 ([Console]::WindowWidth - 4) 1
+                    $newName = Read-Line-TUI 2 4 'Name:  ' $e.Name
+                    if ($null -eq $newName) { break }
+                    $newName = $newName.Trim()
+                    if ($newName -eq '') { Show-Error 'Name cannot be empty.' 7; continue }
+                    break
+                }
+                if ($null -ne $newName -and $newName -ne '') { $script:blacklist[$idx].Name = $newName; Save-Blacklist; Show-Status 'Name updated.' }
             }
             1 {
+                Clear-Host
+                $newUid = Read-Line-TUI 2 4 'UID:   ' $e.Uid
+                if ($null -ne $newUid) { $script:blacklist[$idx].Uid = $newUid.Trim(); Save-Blacklist; Show-Status 'UID updated.' }
+            }
+            2 {
+                $punishments = @('(none)', 'BAN', 'MUTE', 'WARN')
+                $curIdx = if ($e.Punishment -eq '') { 0 } else { [Array]::IndexOf($punishments, $e.Punishment) }
+                if ($curIdx -lt 0) { $curIdx = 0 }
+                $punIdx = Show-Menu 'Edit Punishment' $punishments '' $curIdx
+                if ($punIdx -ge 0) {
+                    $script:blacklist[$idx].Punishment = if ($punIdx -eq 0) { '' } else { $punishments[$punIdx] }
+                    Save-Blacklist; Show-Status 'Punishment updated.'
+                }
+            }
+            3 {
+                $reasons = @('(none)', 'BAN_EVADING', 'TOXICITY', 'HARASSMENT')
+                $curIdx  = if ($e.Reason -eq '') { 0 } else { [Array]::IndexOf($reasons, $e.Reason) }
+                if ($curIdx -lt 0) { $curIdx = 0 }
+                $resIdx = Show-Menu 'Edit Reason' $reasons '' $curIdx
+                if ($resIdx -ge 0) {
+                    $script:blacklist[$idx].Reason = if ($resIdx -eq 0) { '' } else { $reasons[$resIdx] }
+                    Save-Blacklist; Show-Status 'Reason updated.'
+                }
+            }
+            4 {
+                $curDateLabel = if ($e.EndDate -ne '') { "current: $(Format-UnixDate $e.EndDate)" } else { 'currently permanent' }
+                $dateChoice = Show-Menu "End date  ($curDateLabel)" @('Keep current', 'Set new duration', 'Clear (permanent)')
+                if ($dateChoice -eq 1) {
+                    $picked = Pick-EndDate
+                    if ($null -ne $picked) { $script:blacklist[$idx].EndDate = $picked; Save-Blacklist; Show-Status 'End date updated.' }
+                } elseif ($dateChoice -eq 2) {
+                    $script:blacklist[$idx].EndDate = ''; Save-Blacklist; Show-Status 'End date cleared.'
+                }
+            }
+            5 {
                 $c2 = Show-Menu "Remove '$($e.Name)'?" @('Yes, delete', '< Cancel')
                 if ($c2 -eq 0) {
                     $script:blacklist.RemoveAt($idx)
