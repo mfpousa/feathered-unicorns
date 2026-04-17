@@ -1,4 +1,4 @@
-﻿L!ListBegin
+L!ListBegin
 NAME: THE_BOSS
 UID: sqcskouvqw031
 PUNISHMENT: MUTE
@@ -6,331 +6,777 @@ REASON: TOXICITY
 END_DATE: 1776642994
 NAME: Konman1211
 UID: tfvygrbnst0eb
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: VoidWalker113
 UID: yikpehwaof0a0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Skibidigyattrizzsigmaohio
 UID: ayqwwuwnk1fb
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Marcus3005
 UID: gevjrpancy004
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: ttvazzhole
 UID: sbijarneae27f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Kirbster93985
 UID: koyavqelvs1c8
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: ChunkyBabies
 UID: sfavckbmva23f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Mrriss
 UID: slqmszlbih0a4
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: Weaver1999
 UID: tklilhorht210
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: potatoes24
 UID: wowoxkzpsa073
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: toxicman.216193
 UID: rrbbxkqpho2b5
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: prussia1862
 UID: gjkfwyfcsy24d
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: 52kardmagician
 UID: slxpuazuej0a6
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: skylar.duncan.3
 UID: znhfeihzjg2d3
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: SoldierMann
 UID: xaykjpmjeo323
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: doodlez
 UID: bhiioqqtxh3bf
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: CJG_2025
 UID: hlducatcxi35f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: JumpingLynx9097
 UID: yiiorodyvz3b7
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Mute_Smoke
 UID: ppectvnpwl1e7
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Sircumsalot94
 UID: ihjjnnitei26e
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: cumslutmrlonelyfem
 UID: tptonfnfjc1a4
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: LEAKEDWHY
 UID: yfpektzyyj213
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Just.a.random.kid
 UID: eeahfkybzp00c
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Lemonbrains
 UID: dnvffuhlly3f0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: bootybanit456
 UID: fnnlthpae2bc
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Atomic
 UID: sweniesfac196
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: Banana_Hoovy
 UID: xsulghfacj120
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Me_when_your_mom
 UID: lhtckatlok211
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: i.like.bread.2006
 UID: ozszukuswo3d3
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Tinsley1525
 UID: tkfajngkjn21b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: redneck_wrangler
 UID: ffyyxjikkf01c
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Seed313
 UID: jfmtxtubpk1b2
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Rust21
 UID: mrxhzcnugk22f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Weirdwaaazy
 UID: qnuyplervx196
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Gigglegooner1
 UID: vzhgtxeht084
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: jeffery.epicstien.2025
 UID: qletiojlwt1b0
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: big_ahh_redneck
 UID: bobbrxwjnx063
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Starspawn3
 UID: xafgduumml11d
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Luni
 UID: vhjhxldttq290
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: i'm.sick.of.the.trans.freaks
 UID: bmwtpebogz3bd
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Blue664
 UID: atrpdabetk3fb
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Kevbro1210
 UID: obtpnfymgd2fb
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: galaxygamer1543
 UID: hgyljjwryb331
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: victortorres.902415
 UID: nlfjcynnqc333
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: Vynlrr
 UID: jtzhshhggl193
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Braindead.Jokester
 UID: jbywghpwmj27f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: WolfFang_05
 UID: glxhyeubax187
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: popalock576
 UID: jbzmwrzzvc001
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: graboids
 UID: diaqxnhxkv32d
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Dachief11234
 UID: uvnuxcikpm334
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Turoshi
 UID: rqgetoicxz0de
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Clampity_Ow0
 UID: xompyhcbri1fc
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: AbortMi
 UID: jfxldtwdvi3e4
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Goon_Official
 UID: byfuotebyp04a
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: SMOKEYZZZ_0000
 UID: envvamfhsx3fa
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: AuBoB23
 UID: fafqpfbcdz31d
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: 1x4
 UID: ecbraooer158
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Kitty_323
 UID: hzyjhmfguy242
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Thisisntgoonofficial
 UID: Hurkqxxhml14b
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: FlyingRhino76
 UID: eynhijkczt1d0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: The_Real_IDK
 UID: fhnmwlf8yk29f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Ladboi
 UID: Ylyvxiarqh368
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: ozzie2015.8583
 UID: hpjbutxixu1a7
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: DedassSupreme
 UID: pcfrrbboka309
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Phoenixmoor5382
 UID: npckohkonb35b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: radiantpuffin483
 UID: hqgijdezeg258
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: MattTheMedic
 UID: qmcgaileds20b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: TFBallistic
 UID: exraujneja15b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: KING.Q23
 UID: pplmphwqtw0d0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: LeslieCrunch
 UID: lxjsblpcwk2a5
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: theotheguy167
 UID: pmnrdzrnzs32b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: MikeTheOtter
 UID: ctwedjjqvz083
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: BrickJ
 UID: ysjzsisdab3b9
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: BIGBUBBBBBA
 UID: finkateyfh139
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: Irishvenom
 UID: timxiizkju38e
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: DaHerbMan420
 UID: fquzxgtjpt136
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: colee.grev
 UID: klyyazkbwn07c
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Littledom
 UID: mcpyxdyqjw2e3
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: TonLe850
 UID: fetvkwyyyv078
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: tulup
 UID: fhnmwlfsyk29f
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: blitz the rescue pup
 UID: txtxprnjdc2ae
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: TheHunterMan
 UID: bojnefervz3e7
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: CoralEagle1360
 UID: esxemxtnos24e
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: polenreff
 UID: fqraxayeeg35d
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: KingLeo07
 UID: tspwdslfen29a
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: StressLevelOneHundred
 UID: poxdtwgeke366
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Jonnyjonathan69
 UID: ftagxkhtby0ed
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: pumpkinyeep2
 UID: mrzglvwtji0d7
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: I5I
 UID: udaysqhjvc307
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: Mook
 UID: xhrushcpox3aa
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: |5|
 UID: awhidgwvgu0ae
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: yoyovr24
 UID: zvsjqdjzqj226
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Nebraska4
 UID: Ianqrqpesu2fb
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: charlieboypompey2
 UID: nbcrmestgt1c1
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: bingsoyglazer
 UID: dxdztqiaoa04a
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: fckiranonbdk
 UID: ixnjataero110
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Aarondapro
 UID: gilanchktt23f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: ZlackJaw4806
 UID: qysttzvgrk093
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: juicybendz69
 UID: flvtpcushx316
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: cloudlakefam
 UID: dcpejpgupj043
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: HIEZEINBERG.123
 UID: tirjpobcfj19b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: TopEliKing
 UID: pcibomkjti364
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: steellie
 UID: yegbvbxvkh3e1
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Veerutheking123
 UID: rldorgfhjm1ef
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Zoapymeister
 UID: uhlpvrzgrr054
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: boxman1984
 UID: btyapitivd1ab
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: AidenHakr
 UID: uebepkiusj24c
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: yuritarded.2023
 UID: srtipavebg25d
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: PatheticGoblin
 UID: qmegseinns2d6
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: lattohusband
 UID: uasbvlejyn1d2
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Fatbaldbadstard
 UID: FIXME
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Jebroniee
 UID: fwnlqetmyw04b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: AvoidedMoss0893
 UID: pwiciungbt0e4
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Esrot
 UID: pqbqntxvyc396
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: RagePyroTFVR
 UID: tfqyyapyuj182
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: goof12r
 UID: yvkfykixxu058
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Enzo2288
 UID: zkcihavaxr25f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Shreksteen_12
 UID: zepheelzkb1e2
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: twotimehavedih
 UID: hciwsvzyur095
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: chinesejew112
 UID: ktwrwvwqmd2c8
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Smashbros89e
 UID: ctsnedqipi2f8
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: AxlBryce2014
 UID: bechmopkgk22f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: cheese.361077
 UID: miautmlyol0f9
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: w1nd0wl1cker
 UID: nojuqmxyuw360
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Garret_is_Drunk
 UID: oaddyyxlihz25f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Get_Raped_Fag
 UID: bvrfhxidys0e0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: austin143.2023
 UID: olufiarpmtr3a0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Garret_Still_Drunk
 UID: ghoenjemk104
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Garret_still_wasted
 UID: utzylgqodw0ba
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: bbc_lord
 UID: vlgvfeogan0d7
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: sgt.jeffydog
 UID: kpubwztnqg321
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Dr.House
 UID: fzvoilsqiq1dc
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: RAcial_GARRET
 UID: qwnqnehhhy3d1
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: pyromaniac142
 UID: hgclohvdyr0ca
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: Sitedirector
 UID: aakjlqilab3af
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: FirstManADAM
 UID: mfnspkptuh217
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: CARL_BRUTANADILEWSKI
 UID: eouwgxfsui1ef
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: R34tarded_Deamon
 UID: ukhgnkeuns22e
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Shadowyotter3826
 UID: rpnytmyyen254
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: cunninghams2021
 UID: gbfgpapwcj36b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: hotwingswensday
 UID: uzzwdypzoj20f
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: I love sandwich
 UID: qiphnbgsxv241
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: PrivateAyden141
 UID: bokfikwcil0bf
+PUNISHMENT: BAN
 REASON: BAN_EVADING
+END_DATE: 0
 NAME: Squidward_Tentaballs
 UID: cmvbfzyylr06b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Midget_focker
 UID: hbnezmtqzs057
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: RyZuuBear
 UID: dodgwrhegs162
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: beardedexp
 UID: gatcybdpfw2ac
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: latrisha89
 UID: gwwprhtqvc31b
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: mike._merve
 UID: ygmredfreu3ed
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Guts59g_Raiden
 UID: coqfmqpxnd023
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: cheyenn3.2023
 UID: yqyenljajd179
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Noelsoto1009
 UID: sikwvyguwe1b2
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: 0._.ICEYYYY0
 UID: yhtyctxidj1d0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Neck_hert
 UID: somgbhnsyr1d0
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 NAME: Siracha1600
 UID: nwlqiooubg36d
+PUNISHMENT: BAN
+REASON: 
+END_DATE: 0
 L!ListEnd
