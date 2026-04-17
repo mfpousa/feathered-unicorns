@@ -88,8 +88,8 @@ function Get-UidMap {
 # $nameFilter: optional wildcard applied to filenames before binary scanning
 #   (e.g. '*HolderInfo' prevents cosmetics that merely reference the class from matching)
 # ---------------------------------------------------------------------------
-function Scan-Assets($parentClass, [string[]]$subPaths, $nameFilter = '*.uasset') {
-    $cacheKey = "$parentClass|$($subPaths -join '|')"
+function Scan-Assets($parentClass, [string[]]$subPaths, $nameFilter = '*.uasset', $classSuffix = '') {
+    $cacheKey = "$parentClass|$($subPaths -join '|')|$classSuffix"
     if ($script:assetCache.ContainsKey($cacheKey)) { return $script:assetCache[$cacheKey] }
 
     $results = [System.Collections.Generic.List[PSCustomObject]]::new()
@@ -131,7 +131,7 @@ function Scan-Assets($parentClass, [string[]]$subPaths, $nameFilter = '*.uasset'
         $rel      = $f.FullName.Substring($resolvedBase.Length).TrimStart('\').Replace('\', '/')
         $noExt    = $rel -replace '\.uasset$'
         $name     = $f.BaseName
-        $gamePath = "/Game/$noExt.$name"
+        $gamePath = "/Game/$noExt.${name}${classSuffix}"
 
         $results.Add([PSCustomObject]@{
             Label    = $name
@@ -1023,7 +1023,7 @@ function Scan-AssetsWithStatus {
     Write-At 2 2 'Scanning UE4 assets... (this may take a moment)' Yellow
     [Console]::CursorVisible = $false
     $ca    = @(Scan-Assets $script:CLASS_PARENT_CLASS $script:CLASS_SCAN_PATHS '*HolderInfo.uasset')
-    $ia    = @(Scan-Assets $script:CLASS_PARENT_ITEM  $script:ITEM_SCAN_PATHS)
+    $ia    = @(Scan-Assets $script:CLASS_PARENT_ITEM  $script:ITEM_SCAN_PATHS '*.uasset' '_C')
     $slots = @(Scan-Slots $ca)
     return @{ ClassAssets = $ca; ItemAssets = $ia; Slots = $slots }
 }
@@ -1064,13 +1064,14 @@ function Override-Actions($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots
             "Item:     $itemShort",
             "Players:  $($o.Players)",
             "Tag:      $tagLabel",
+            'Copy',
             'Delete',
             '< Back'
         )
         $c = Show-Menu (Format-OverrideLabel $o) $menuItems
         switch ($c) {
             -1 { return }
-            6  { return }
+            7  { return }
             0 {
                 if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
                 $newClass = Pick-Asset 'Edit Class (ZomboyLoadoutHolderDataInfo)' $classAssets.Value
@@ -1099,7 +1100,8 @@ function Override-Actions($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots
                 $newTag = Pick-Tag
                 if ($null -ne $newTag) { $script:overrides[$idx].Tag = $newTag; Save-Overrides; Show-Status 'Tag updated.' }
             }
-            5 { Delete-Override $idx; return }
+            5 { Copy-Override $idx $classAssets $itemAssets $slots; return }
+            6 { Delete-Override $idx; return }
         }
     }
 }
@@ -1122,37 +1124,66 @@ function Create-Override([ref]$classAssets, [ref]$itemAssets, [ref]$slots, $defa
     # Scan assets on demand (first time only)
     if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
 
-    # CLASS + SLOT — loop so Esc on slot returns to class picker
-    $newClass = $null
-    $newSlot  = $null
-    while ($true) {
-        $newClass = Pick-Asset 'Override: Pick class (ZomboyLoadoutHolderDataInfo)' $classAssets.Value
-        if ($null -eq $newClass) { return }
+    $newClass   = $null
+    $newSlot    = $null
+    $newItem    = $null
+    $newPlayers = $null
+    $newTag     = $null
+    $classSlots = @()
+    $step = 0   # 0=class, 1=slot, 2=item, 3=players, 4=tag
 
-        # SLOT - derive slot list from the specific selected class asset
-        $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $newClass })[0]
-        $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
-        if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
-        $slotIdx = Show-Menu 'Override: Pick slot' $classSlots
-        if ($slotIdx -ge 0) { $newSlot = $classSlots[$slotIdx]; break }
-        # Esc on slot => loop back to class picker
+    while ($step -le 4) {
+        if ($step -eq 0) {
+            $newClass = Pick-Asset 'Override: Pick class (ZomboyLoadoutHolderDataInfo)' $classAssets.Value
+            if ($null -eq $newClass) { return }
+            $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $newClass })[0]
+            $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
+            if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
+            $step++
+        } elseif ($step -eq 1) {
+            $slotIdx = Show-Menu 'Override: Pick slot' $classSlots
+            if ($slotIdx -lt 0) { $step-- } else { $newSlot = $classSlots[$slotIdx]; $step++ }
+        } elseif ($step -eq 2) {
+            if ($null -eq $itemAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
+            $newItem = Pick-Asset 'Override: Pick item (ZomboyInteractableActor)' $itemAssets.Value
+            if ($null -eq $newItem) { $step-- } else { $step++ }
+        } elseif ($step -eq 3) {
+            $allTargets = @($script:users.Keys) + @($script:groups.Keys | ForEach-Object { "@$_" })
+            $newPlayers = Pick-Players $allTargets @()
+            if ($null -eq $newPlayers) { $step-- } else { $step++ }
+        } elseif ($step -eq 4) {
+            $newTag = Pick-Tag $defaultTag
+            if ($null -eq $newTag) { $step-- } else { $step++ }
+        }
     }
 
-    # ITEM
-    $newItem = Pick-Asset 'Override: Pick item (ZomboyInteractableActor)' $itemAssets.Value
-    if ($null -eq $newItem) { return }
-
-    # PLAYERS
-    $allTargets = @($script:users.Keys) + @($script:groups.Keys | ForEach-Object { "@$_" })
-    $newPlayers = Pick-Players $allTargets @()
-
-    # TAG
-    $newTag = Pick-Tag $defaultTag
-    if ($null -eq $newTag) { return }
+    # Duplicate check: warn if any new Class+Slot+Item+Player combo already exists
+    $newPlayerSet = [System.Collections.Generic.HashSet[string]]($newPlayers)
+    $dupePlayers  = [System.Collections.Generic.List[string]]::new()
+    foreach ($existing in $script:overrides) {
+        if ($existing.Class -ne $newClass -or $existing.Slot -ne $newSlot -or $existing.Item -ne $newItem) { continue }
+        foreach ($p in ($existing.Players -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '' })) {
+            if ($newPlayerSet.Contains($p) -and -not $dupePlayers.Contains($p)) { $dupePlayers.Add($p) }
+        }
+    }
+    if ($dupePlayers.Count -gt 0) {
+        $dc = Show-Menu 'Duplicate override detected!' @('Save anyway', '< Cancel') `
+            "Already assigned Class+Slot+Item to: $($dupePlayers -join ', ')"
+        if ($dc -ne 0) { return }
+    }
 
     $script:overrides.Add(@{ Class = $newClass; Slot = $newSlot; Item = $newItem; Players = ($newPlayers -join ','); Tag = $newTag })
     Save-Overrides
     Show-Status 'Override created.'
+}
+
+function Copy-Override($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    $src = $script:overrides[$idx]
+    $script:overrides.Add(@{ Class = $src.Class; Slot = $src.Slot; Item = $src.Item; Players = $src.Players; Tag = $src.Tag })
+    Save-Overrides
+    $newIdx = $script:overrides.Count - 1
+    Show-Status 'Override copied. Opening new entry...'
+    Override-Actions $newIdx $classAssets $itemAssets $slots
 }
 
 function Delete-Override($idx) {

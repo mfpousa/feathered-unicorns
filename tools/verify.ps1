@@ -216,6 +216,7 @@ foreach ($file in $overrideFiles) {
         elseif (-not $validSlots.Contains($b.Slot))        { Write-Issue 'ERROR' "$loc : unknown SLOT '$($b.Slot)' (valid: $($validSlots -join ', '))" }
         if ($null -eq $b.Item)                             { Write-Issue 'ERROR' "$loc : ITEM field missing" }
         elseif ([string]::IsNullOrWhiteSpace($b.Item))     { Write-Issue 'ERROR' "$loc : ITEM is empty" }
+        elseif ($b.Item -notmatch '_C$')                   { Write-Issue 'WARN'  "$loc : ITEM '$($b.Item)' is missing the _C suffix" }
         elseif ($canValidateAssets -and -not (Test-ItemAsset $b.Item)) {
             Write-Issue 'ERROR' "$loc : ITEM '$($b.Item)' not found in scanned assets"
         }
