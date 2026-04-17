@@ -1077,9 +1077,12 @@ function Override-Actions($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots
                 if ($null -ne $newClass) { $script:overrides[$idx].Class = $newClass; Save-Overrides; Show-Status 'Class updated.' }
             }
             1 {
-                if ($null -eq $slots.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
-                $slotIdx = Show-Menu 'Edit Slot' $slots.Value
-                if ($slotIdx -ge 0) { $script:overrides[$idx].Slot = $slots.Value[$slotIdx]; Save-Overrides; Show-Status 'Slot updated.' }
+                if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
+                $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $o.Class })[0]
+                $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
+                if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
+                $slotIdx = Show-Menu 'Edit Slot' $classSlots
+                if ($slotIdx -ge 0) { $script:overrides[$idx].Slot = $classSlots[$slotIdx]; Save-Overrides; Show-Status 'Slot updated.' }
             }
             2 {
                 if ($null -eq $itemAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
@@ -1119,14 +1122,21 @@ function Create-Override([ref]$classAssets, [ref]$itemAssets, [ref]$slots, $defa
     # Scan assets on demand (first time only)
     if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
 
-    # CLASS
-    $newClass = Pick-Asset 'Override: Pick class (ZomboyLoadoutHolderDataInfo)' $classAssets.Value
-    if ($null -eq $newClass) { return }
+    # CLASS + SLOT — loop so Esc on slot returns to class picker
+    $newClass = $null
+    $newSlot  = $null
+    while ($true) {
+        $newClass = Pick-Asset 'Override: Pick class (ZomboyLoadoutHolderDataInfo)' $classAssets.Value
+        if ($null -eq $newClass) { return }
 
-    # SLOT
-    $slotIdx = Show-Menu 'Override: Pick slot' $slots.Value
-    if ($slotIdx -lt 0) { return }
-    $newSlot = $slots.Value[$slotIdx]
+        # SLOT - derive slot list from the specific selected class asset
+        $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $newClass })[0]
+        $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
+        if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
+        $slotIdx = Show-Menu 'Override: Pick slot' $classSlots
+        if ($slotIdx -ge 0) { $newSlot = $classSlots[$slotIdx]; break }
+        # Esc on slot => loop back to class picker
+    }
 
     # ITEM
     $newItem = Pick-Asset 'Override: Pick item (ZomboyInteractableActor)' $itemAssets.Value
