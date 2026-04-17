@@ -4,6 +4,8 @@ Configuration files for managing player access and loadouts.
 
 > **Note:** `NAME` is just a human-readable alias. The `UID` is the only field that actually identifies a player — names are ignored by the system.
 
+Recommended to be edited with [Our ban data tool](https://github.com/realbucketofchicken/ban-list-editor)
+
 ## Blacklist (`blacklist.txt`)
 
 Players on the blacklist are banned from the server. Each entry has a `NAME` and `UID`. To ban a player, add a block:
