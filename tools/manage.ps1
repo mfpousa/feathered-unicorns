@@ -1184,190 +1184,28 @@ function Get-ItemsForSlot([PSCustomObject[]]$allItems, [string]$slotName) {
 }
 
 # Returns the subset of $slotItems that the HolderInfo assigns to $slotName.
-# Parses the UE4 name table and scans for (itemNameIdx, 0, ELoadoutCategory_XXX_idx, 0)
-# patterns in the binary data, which is how TMap<FName, ELoadoutCategory> is serialised.
-# Falls back to a plain token-present check when parsing fails or no category map is found.
+# Looks up the class+slot in $script:customLoadouts (loaded from default-custom-loadouts.txt).
 function Get-HolderInfoDefaults([string]$holderFilePath, [PSCustomObject[]]$slotItems, [string]$slotName = '') {
-    if ($null -eq $holderFilePath -or $holderFilePath -eq '' -or -not (Test-Path $holderFilePath)) { return @() }
-    if ($slotItems.Count -eq 0) { return @() }
-    if (-not ('HolderInfoParser' -as [type])) {
-        Add-Type -TypeDefinition @'
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-public static class HolderInfoParser {
-    static string ReadFString(BinaryReader br) {
-        int len = br.ReadInt32();
-        if (len == 0) return string.Empty;
-        if (len > 0) {
-            byte[] buf = br.ReadBytes(len);
-            return Encoding.ASCII.GetString(buf, 0, Math.Max(0, len - 1));
-        }
-        byte[] ubuf = br.ReadBytes(-len * 2);
-        return Encoding.Unicode.GetString(ubuf, 0, Math.Max(0, (-len - 1) * 2));
-    }
-    // Returns dict: item blueprint class name (e.g. "Syringegun_C") -> slot name ("Primary" etc.)
-    public static Dictionary<string, string> GetItemCategories(string filePath) {
-        var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        try {
-            byte[] bytes = File.ReadAllBytes(filePath);
-            using (var ms = new MemoryStream(bytes))
-            using (var br = new BinaryReader(ms)) {
-                if (br.ReadUInt32() != 0x9E2A83C1) return result;
-                br.ReadInt32(); // LegacyFileVersion
-                br.ReadInt32(); // LegacyUE3Version
-                br.ReadInt32(); // FileVersionUE4
-                br.ReadInt32(); // FileVersionLicenseeUE4
-                int cvCount = br.ReadInt32();
-                for (int i = 0; i < cvCount; i++) { br.ReadBytes(16); br.ReadInt32(); }
-                br.ReadInt32(); // TotalHeaderSize
-                ReadFString(br); // FolderName
-                br.ReadUInt32(); // PackageFlags
-                int nameCount = br.ReadInt32();
-                int nameOffset = br.ReadInt32();
-                ms.Seek(nameOffset, SeekOrigin.Begin);
-                var names = new string[nameCount];
-                for (int i = 0; i < nameCount; i++) {
-                    names[i] = ReadFString(br);
-                    br.ReadUInt32(); // NonCasePreservingHash + CasePreservingHash (2x uint16)
-                }
-                // Map category enum names -> slot label
-                var catNames = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
-                    { "ELoadoutCategory_Primary", "Primary" },
-                    { "ELoadoutCategory_Sidearm", "Sidearm" },
-                    { "ELoadoutCategory_Melee",   "Melee"   },
-                    { "ELoadoutCategory_Gadget",  "Gadget"  }
-                };
-                var catMap = new Dictionary<int, string>();
-                var itemIdxSet = new HashSet<int>();
-                for (int i = 0; i < names.Length; i++) {
-                    string n = names[i];
-                    if (catNames.TryGetValue(n, out string slot)) catMap[i] = slot;
-                    else if (n.EndsWith("_C") && n.Length > 2) itemIdxSet.Add(i);
-                }
-                if (catMap.Count == 0 || itemIdxSet.Count == 0) return result;
-                // Scan binary as int32 array for pattern [itemIdx][0][catIdx][0]
-                // This matches TMap<FName,ELoadoutCategory> serialised as FName key + FName enum value
-                int intLen = bytes.Length / 4;
-                for (int i = 0; i <= intLen - 4; i++) {
-                    int v0 = BitConverter.ToInt32(bytes, i * 4);
-                    if (!itemIdxSet.Contains(v0)) continue;
-                    if (BitConverter.ToInt32(bytes, (i + 1) * 4) != 0) continue;
-                    int v2 = BitConverter.ToInt32(bytes, (i + 2) * 4);
-                    if (!catMap.ContainsKey(v2)) continue;
-                    if (BitConverter.ToInt32(bytes, (i + 3) * 4) != 0) continue;
-                    result[names[v0]] = catMap[v2];
-                }
+    if ($slotItems.Count -eq 0 -or $slotName -eq '') { return @() }
+    # Derive the game class path from the filesystem path
+    $contentBase = (Resolve-Path $script:UE4ContentPath).Path.TrimEnd('\')
+    if (-not $holderFilePath.StartsWith($contentBase, [System.StringComparison]::OrdinalIgnoreCase)) { return @() }
+    $rel       = $holderFilePath.Substring($contentBase.Length).TrimStart('\').Replace('\', '/')
+    $rel       = $rel -replace '\.uasset$', ''
+    $className = $rel -split '/' | Select-Object -Last 1
+    $classPath = "/Game/$rel.$className"
+    # Collect items for this class+slot from all custom loadouts
+    $matchPaths = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
+    foreach ($lo in $script:customLoadouts) {
+        foreach ($c in $lo.Classes) {
+            if ($c.Class -ne $classPath) { continue }
+            foreach ($s in $c.Slots) {
+                if ($s.Slot -ne $slotName) { continue }
+                foreach ($item in $s.Items) { $matchPaths.Add($item) | Out-Null }
             }
-        } catch { }
-        return result;
-    }
-}
-'@
-    }
-    $categories = [HolderInfoParser]::GetItemCategories($holderFilePath)
-    if ($categories.Count -gt 0 -and $slotName -ne '') {
-        # Use the precise per-item category mapping from the UE4 asset
-        return @($slotItems | Where-Object {
-            $assetName = ($_.GamePath -split '\.' | Select-Object -Last 1)
-            $categories.ContainsKey($assetName) -and $categories[$assetName] -eq $slotName
-        })
-    }
-    # Fallback: token-present check (no category data found or slotName not specified)
-    $bytes = [System.IO.File]::ReadAllBytes($holderFilePath)
-    $text  = [System.Text.Encoding]::GetEncoding(28591).GetString($bytes)
-    return @($slotItems | Where-Object {
-        $assetName = ($_.GamePath -split '\.' | Select-Object -Last 1)
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-public static class HolderInfoParser {
-    static string ReadFString(BinaryReader br) {
-        int len = br.ReadInt32();
-        if (len == 0) return string.Empty;
-        if (len > 0) {
-            byte[] buf = br.ReadBytes(len);
-            return Encoding.ASCII.GetString(buf, 0, Math.Max(0, len - 1));
         }
-        byte[] ubuf = br.ReadBytes(-len * 2);
-        return Encoding.Unicode.GetString(ubuf, 0, Math.Max(0, (-len - 1) * 2));
     }
-    // Returns dict: item blueprint class name (e.g. "Syringegun_C") -> slot name ("Primary" etc.)
-    public static Dictionary<string, string> GetItemCategories(string filePath) {
-        var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        try {
-            byte[] bytes = File.ReadAllBytes(filePath);
-            using (var ms = new MemoryStream(bytes))
-            using (var br = new BinaryReader(ms)) {
-                if (br.ReadUInt32() != 0x9E2A83C1) return result;
-                br.ReadInt32(); // LegacyFileVersion
-                br.ReadInt32(); // LegacyUE3Version
-                br.ReadInt32(); // FileVersionUE4
-                br.ReadInt32(); // FileVersionLicenseeUE4
-                int cvCount = br.ReadInt32();
-                for (int i = 0; i < cvCount; i++) { br.ReadBytes(16); br.ReadInt32(); }
-                br.ReadInt32(); // TotalHeaderSize
-                ReadFString(br); // FolderName
-                br.ReadUInt32(); // PackageFlags
-                int nameCount = br.ReadInt32();
-                int nameOffset = br.ReadInt32();
-                ms.Seek(nameOffset, SeekOrigin.Begin);
-                var names = new string[nameCount];
-                for (int i = 0; i < nameCount; i++) {
-                    names[i] = ReadFString(br);
-                    br.ReadUInt32(); // NonCasePreservingHash + CasePreservingHash (2x uint16)
-                }
-                // Map category enum names -> slot label
-                var catNames = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
-                    { "ELoadoutCategory_Primary", "Primary" },
-                    { "ELoadoutCategory_Sidearm", "Sidearm" },
-                    { "ELoadoutCategory_Melee",   "Melee"   },
-                    { "ELoadoutCategory_Gadget",  "Gadget"  }
-                };
-                var catMap = new Dictionary<int, string>();
-                var itemIdxSet = new HashSet<int>();
-                for (int i = 0; i < names.Length; i++) {
-                    string n = names[i];
-                    string slot;
-                    if (catNames.TryGetValue(n, out slot)) catMap[i] = slot;
-                    else if (n.EndsWith("_C") && n.Length > 2) itemIdxSet.Add(i);
-                }
-                if (catMap.Count == 0 || itemIdxSet.Count == 0) return result;
-                // Scan binary as int32 array for pattern [itemIdx][0][catIdx][0]
-                // This matches TMap<FName,ELoadoutCategory> serialised as FName key + FName enum value
-                int intLen = bytes.Length / 4;
-                for (int i = 0; i <= intLen - 4; i++) {
-                    int v0 = BitConverter.ToInt32(bytes, i * 4);
-                    if (!itemIdxSet.Contains(v0)) continue;
-                    if (BitConverter.ToInt32(bytes, (i + 1) * 4) != 0) continue;
-                    int v2 = BitConverter.ToInt32(bytes, (i + 2) * 4);
-                    if (!catMap.ContainsKey(v2)) continue;
-                    if (BitConverter.ToInt32(bytes, (i + 3) * 4) != 0) continue;
-                    result[names[v0]] = catMap[v2];
-                }
-            }
-        } catch { }
-        return result;
-    }
-}
-'@
-    }
-    $categories = [HolderInfoParser]::GetItemCategories($holderFilePath)
-    if ($categories.Count -gt 0 -and $slotName -ne '') {
-        # Use the precise per-item category mapping from the UE4 asset
-        return @($slotItems | Where-Object {
-            $assetName = ($_.GamePath -split '\.' | Select-Object -Last 1)
-            $categories.ContainsKey($assetName) -and $categories[$assetName] -eq $slotName
-        })
-    }
-    # Fallback: token-present check (no category data found or slotName not specified)
-    $bytes = [System.IO.File]::ReadAllBytes($holderFilePath)
-    $text  = [System.Text.Encoding]::GetEncoding(28591).GetString($bytes)
-    return @($slotItems | Where-Object {
-        $assetName = ($_.GamePath -split '\.' | Select-Object -Last 1)
-        $text.Contains($assetName)
-    })
+    return @($slotItems | Where-Object { $matchPaths.Contains($_.GamePath) })
 }
 
 # Single-item picker that first offers class-defaults vs all-items choice when defaults exist.
