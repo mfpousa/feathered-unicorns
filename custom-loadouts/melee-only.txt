@@ -2,10 +2,13 @@ LOADOUT: Melee Only
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Melee
 HAS_NONE: false
+DEFAULT_ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Bat/Bat.Bat_C
+CATEGORY: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Bat/Bat.Bat_C
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Batsaber/Batsaber.Batsaber_C
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Melee
 HAS_NONE: true
+CATEGORY: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Bat/Bat.Bat_C
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Batsaber/Batsaber.Batsaber_C
