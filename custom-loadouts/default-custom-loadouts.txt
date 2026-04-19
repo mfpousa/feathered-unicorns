@@ -11,4 +11,3 @@ SLOT: Melee
 HAS_NONE: true
 CATEGORY: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Bat/Bat.Bat_C
-ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Batsaber/Batsaber.Batsaber_C
