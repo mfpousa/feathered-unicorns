@@ -1,0 +1,9 @@
+LOADOUT_NAME: Melee Only
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
+SLOT: Melee
+ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Bat/Bat.Bat_C
+ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Batsaber/Batsaber.Batsaber_C
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
+SLOT: Melee
+ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Bat/Bat.Bat_C
+ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Batsaber/Batsaber.Batsaber_C
