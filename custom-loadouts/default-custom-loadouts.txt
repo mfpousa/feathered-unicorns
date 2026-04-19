@@ -61,6 +61,10 @@ ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Bonesaw/Bonesaw.Bonesaw_C
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Objector/OtherClasses/medic_Objector.medic_Objector_C
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Fryingpan/Fryingpan.Fryingpan_C
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Ubersaw/Ubersaw.Ubersaw_C
+SLOT: Primary
+HAS_NONE: false
+CATEGORY: Primary
+ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Crusaderscrossbow/CrusadersCrossbow.CrusadersCrossbow_C
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
 SLOT: Melee
 HAS_NONE: false
