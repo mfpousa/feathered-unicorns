@@ -3,12 +3,23 @@
 
 $UsersFile         = "$PSScriptRoot\..\users.txt"
 $OverridesFile     = "$PSScriptRoot\..\loadout-overrides\default-loadout-overrides.txt"
-$BlacklistFile     = "$PSScriptRoot\..\blacklist.txt"
-$UE4ContentPath    = "$PSScriptRoot\..\..\ContractorsVR\ModProject\Content"
+$BlacklistFile      = "$PSScriptRoot\..\blacklist.txt"
+$CustomLoadoutsFile = "$PSScriptRoot\..\custom-loadouts\default-custom-loadouts.txt"
+$UE4ContentPath     = "$PSScriptRoot\..\..\ContractorsVR\ModProject\Content"
 
 # UE4 parent class strings used to identify asset types by scanning raw binary
-$CLASS_PARENT_ITEM  = 'ZomboyInteractableActor'
-$CLASS_PARENT_CLASS = 'ZomboyLoadoutHolderDataInfo'
+$CLASS_PARENT_CLASS      = 'ZomboyLoadoutHolderDataInfo'
+$CLASS_ITEM_WEAPON_TYPES = @('TF2InteractableActor', 'TF2Gun', 'TF2MeleeWeapon', 'TF2Fists')
+$CLASS_ITEM_ATTACH_TYPE  = 'TF2LoadoutAttachment'
+$CLASS_ATTACHMENT_SLOTS  = @('Hat', 'Misc', 'Misc 2')
+# Maps known slot names to the item sub-types valid for that slot.
+# Get-ItemsForSlot uses this so the HolderInfo binary search only matches
+# items of the right type for the slot, not items from all slots.
+$SLOT_ITEM_TYPES = @{
+    'Melee'     = @('TF2MeleeWeapon', 'TF2Fists')
+    'Primary'   = @('TF2Gun', 'TF2InteractableActor')
+    'Secondary' = @('TF2Gun', 'TF2InteractableActor')
+}
 
 # Subdirectories under $UE4ContentPath to scan for each asset type
 # Scoping these avoids scanning the entire Content tree (88k+ files)
@@ -22,7 +33,8 @@ $ITEM_SCAN_PATHS  = @('tf2_commons_v142\Loadout\Loadouts', 'tf2_commons_v142\Loa
 $users     = [ordered]@{}   # name -> uid
 $groups    = [ordered]@{}   # groupname -> List[string]
 $overrides  = [System.Collections.Generic.List[hashtable]]::new()  # list of {Class,Slot,Item,Players}
-$blacklist  = [System.Collections.Generic.List[hashtable]]::new()  # list of {Name,Uid,Punishment,Reason,EndDate}
+$blacklist      = [System.Collections.Generic.List[hashtable]]::new()  # list of {Name,Uid,Punishment,Reason,EndDate}
+$customLoadouts = [System.Collections.Generic.List[hashtable]]::new()  # list of {Name, Classes}
 $assetCache = @{}            # parentClass -> [PSCustomObject[]] {Label, GamePath}
 
 function Load-Data {
@@ -88,59 +100,86 @@ function Get-UidMap {
 # $nameFilter: optional wildcard applied to filenames before binary scanning
 #   (e.g. '*HolderInfo' prevents cosmetics that merely reference the class from matching)
 # ---------------------------------------------------------------------------
-function Scan-Assets($parentClass, [string[]]$subPaths, $nameFilter = '*.uasset', $classSuffix = '') {
-    $cacheKey = "$parentClass|$($subPaths -join '|')|$classSuffix"
+function Scan-Assets([string[]]$parentClasses, [string[]]$subPaths, $nameFilter = '*.uasset', $classSuffix = '') {
+    $cacheKey = "$($parentClasses -join '+')_$($subPaths -join '|')_$classSuffix"
     if ($script:assetCache.ContainsKey($cacheKey)) { return $script:assetCache[$cacheKey] }
-
-    $results = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     if (-not (Test-Path $script:UE4ContentPath)) {
         $script:assetCache[$cacheKey] = @()
         return @()
     }
 
-    # Resolve away any ../.. components so Substring() gets the right offset
-    $resolvedBase = (Resolve-Path $script:UE4ContentPath).Path.TrimEnd('\')
+    # Compile parallel scanner once per session
+    if (-not ('AssetScanner' -as [type])) {
+        Add-Type -TypeDefinition @'
+using System;
+using System.Collections.Generic;
+using System.Collections.Concurrent;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+public static class AssetScanner {
+    public static List<string[]> Scan(string[] paths, string[] parentClasses, string resolvedBase, string classSuffix) {
+        var bag = new ConcurrentBag<string[]>();
+        var enc = Encoding.GetEncoding(28591);
+        var rb  = resolvedBase.TrimEnd('\\');
+        Parallel.ForEach(paths, path => {
+            byte[] bytes;
+            using (var fs = File.OpenRead(path)) {
+                int toRead = (int)Math.Min(fs.Length, 524288L);
+                bytes = new byte[toRead];
+                int offset = 0, read;
+                while (offset < toRead && (read = fs.Read(bytes, offset, toRead - offset)) > 0) offset += read;
+            }
+            string text = enc.GetString(bytes);
+            string matched = null;
+            foreach (var pc in parentClasses) { if (text.Contains(pc)) { matched = pc; break; } }
+            if (matched != null) {
+                string rel      = path.Substring(rb.Length).TrimStart('\\').Replace('\\', '/');
+                string noExt    = rel.EndsWith(".uasset") ? rel.Substring(0, rel.Length - 7) : rel;
+                string name     = Path.GetFileNameWithoutExtension(path);
+                string gamePath = "/Game/" + noExt + "." + name + classSuffix;
+                bag.Add(new string[] { name, gamePath, path, matched });
+            }
+        });
+        var list = new List<string[]>(bag);
+        list.Sort((a, b) => StringComparer.OrdinalIgnoreCase.Compare(a[0], b[0]));
+        return list;
+    }
+}
+'@
+    }
 
-    # Collect files only from the specified subdirectories
-    $files = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
+    $resolvedBase = (Resolve-Path $script:UE4ContentPath).Path.TrimEnd('\')
+    $filePaths = [System.Collections.Generic.List[string]]::new()
     foreach ($sub in $subPaths) {
         $dir = Join-Path $resolvedBase $sub
         if (Test-Path $dir) {
             foreach ($f in (Get-ChildItem -Path $dir -Filter $nameFilter -Recurse -File)) {
-                $files.Add($f)
+                $filePaths.Add($f.FullName)
             }
         }
     }
 
-    $total  = $files.Count
-    $n      = 0
+    if ($filePaths.Count -eq 0) { $script:assetCache[$cacheKey] = @(); return @() }
 
-    foreach ($f in $files) {
-        $n++
-        if ($n % 50 -eq 0) {
-            Write-At 2 3 "  $n / $total files..." DarkGray
+    Write-At 2 3 "  Scanning $($filePaths.Count) files in parallel..." DarkGray
+    $raw = [AssetScanner]::Scan($filePaths.ToArray(), $parentClasses, $resolvedBase, $classSuffix)
+
+    # Determine which subpaths are contributions so those assets can be flagged as deprecated
+    $contribPrefix = $null
+    foreach ($sub in $subPaths) {
+        if ($sub -match '(?i)^Contributions') {
+            $contribPrefix = Join-Path $resolvedBase $sub; break
         }
-        # Read bytes and decode as Latin-1 (1:1 byte mapping) so .NET Contains() can search
-        # the raw binary for the parent class string without a slow PowerShell loop
-        $bytes = [System.IO.File]::ReadAllBytes($f.FullName)
-        $text  = [System.Text.Encoding]::GetEncoding(28591).GetString($bytes)
-        if (-not $text.Contains($parentClass)) { continue }
-
-        # Convert filesystem path to /Game/ reference
-        $rel      = $f.FullName.Substring($resolvedBase.Length).TrimStart('\').Replace('\', '/')
-        $noExt    = $rel -replace '\.uasset$'
-        $name     = $f.BaseName
-        $gamePath = "/Game/$noExt.${name}${classSuffix}"
-
-        $results.Add([PSCustomObject]@{
-            Label    = $name
-            GamePath = $gamePath
-            FilePath = $f.FullName
-        })
     }
-
-    $arr = $results.ToArray()
+    # Build objects, sort canonical (non-deprecated) before contributions so that
+    # when deduplicating by Label the canonical copy always wins, then re-sort by Label.
+    $seen = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
+    $arr = @($raw | ForEach-Object {
+        $isDepr = $null -ne $contribPrefix -and $_[2].StartsWith($contribPrefix, [System.StringComparison]::OrdinalIgnoreCase)
+        [PSCustomObject]@{ Label = $_[0]; GamePath = $_[1]; FilePath = $_[2]; Type = $_[3]; IsDeprecated = $isDepr }
+    } | Sort-Object IsDeprecated, Label | Where-Object { $seen.Add($_.Label) })
     $script:assetCache[$cacheKey] = $arr
     return $arr
 }
@@ -313,39 +352,51 @@ function Read-Line-TUI($px, $py, $prompt, $initial = '') {
 function Show-Menu($title, $items, $statusLine = '', $initialSel = 0) {
     Hide-Cursor
     $sel = if ($initialSel -ge 0 -and $initialSel -lt $items.Count) { $initialSel } else { 0 }
+    $top = 0
 
     function Render {
         Clear-Host
-        $h = [Console]::WindowHeight
-        $w = [Console]::WindowWidth - 4
+        $h        = [Console]::WindowHeight
+        $w        = [Console]::WindowWidth - 4
+        $visCount = [Math]::Max(1, $h - 5)
         Write-At 2 1 $title Cyan
         Write-At 2 2 ('-' * [Math]::Min($title.Length + 2, $w)) DarkCyan
-        for ($i = 0; $i -lt $items.Count; $i++) {
-            $row = $i + 3
-            if ($row -ge $h - 2) { break }   # stop before running off screen
+        for ($i = $top; $i -lt $items.Count -and ($i - $top) -lt $visCount; $i++) {
+            $row   = $i - $top + 3
             $label = "   $($items[$i])  "
             if ($i -eq $sel) { Write-At 2 $row $label Black White }
             elseif ($items[$i] -like '+*') { Write-At 2 $row $label Green }
             elseif ($items[$i] -like '<*') { Write-At 2 $row $label DarkGray }
             else                           { Write-At 2 $row $label White }
         }
-        $fy = [Math]::Min($items.Count + 5, $h - 2)
-        if ($fy -ge 0 -and $fy -lt $h) {
-            Write-At 2 $fy 'Arrow keys: navigate    Enter: select    Esc: back' DarkGray
-        }
-        if ($statusLine -ne '' -and ($fy + 1) -lt $h) {
-            Write-At 2 ($fy + 1) $statusLine Yellow
-        }
+        $fy = [Math]::Min($visCount + 3, $h - 2)
+        $nav = if ($items.Count -gt $visCount) { "  ($($sel + 1)/$($items.Count))  Up/Down: scroll    Enter: select    Esc: back" } else { 'Arrow keys: navigate    Enter: select    Esc: back' }
+        if ($fy -ge 0 -and $fy -lt $h) { Write-At 2 $fy $nav DarkGray }
+        if ($statusLine -ne '' -and ($fy + 1) -lt $h) { Write-At 2 ($fy + 1) $statusLine Yellow }
     }
 
     Render
     while ($true) {
         $k = [Console]::ReadKey($true)
         switch ($k.Key) {
-            'UpArrow'   { if ($sel -gt 0) { $sel-- }; Render }
-            'DownArrow' { if ($sel -lt $items.Count - 1) { $sel++ }; Render }
-            'Enter'     { Show-Cursor; return $sel }
-            'Escape'    { Show-Cursor; return -1 }
+            'UpArrow' {
+                if ($sel -gt 0) {
+                    $sel--
+                    $visCount = [Math]::Max(1, [Console]::WindowHeight - 5)
+                    if ($sel -lt $top) { $top = $sel }
+                }
+                Render
+            }
+            'DownArrow' {
+                if ($sel -lt $items.Count - 1) {
+                    $sel++
+                    $visCount = [Math]::Max(1, [Console]::WindowHeight - 5)
+                    if ($sel -ge $top + $visCount) { $top = $sel - $visCount + 1 }
+                }
+                Render
+            }
+            'Enter'  { Show-Cursor; return $sel }
+            'Escape' { Show-Cursor; return -1 }
         }
     }
 }
@@ -374,19 +425,25 @@ function Show-Picker($title, [string[]]$items, $multiSelect = $false, [string[]]
         } else {
             $q = $query.ToLower()
             $filtered = if ($items.Count -eq 0) { @() } else {
-                @(0..($items.Count - 1) | Where-Object {
-                $candidate = $items[$_].ToLower()
-                if ($searchSubtexts -and $null -ne $subtexts -and $_ -lt $subtexts.Count -and $subtexts[$_] -ne '') {
-                    $candidate = "$candidate $($subtexts[$_].ToLower())"
-                }
-                if ($filterMode -eq 'contains') {
-                    $candidate.Contains($q)
-                } else {
-                    $s = $candidate; $qi = 0
-                    foreach ($ch in $s.ToCharArray()) { if ($qi -lt $q.Length -and $ch -eq $q[$qi]) { $qi++ } }
-                    $qi -eq $q.Length
-                }
-            } | ForEach-Object { $items[$_] })
+                @(0..($items.Count - 1) | ForEach-Object {
+                    $candidate = $items[$_].ToLower()
+                    if ($searchSubtexts -and $null -ne $subtexts -and $_ -lt $subtexts.Count -and $subtexts[$_] -ne '') {
+                        $candidate = "$candidate $($subtexts[$_].ToLower())"
+                    }
+                    if ($filterMode -eq 'contains') {
+                        if ($candidate.Contains($q)) { [PSCustomObject]@{ Idx = $_; Score = 1 } }
+                    } else {
+                        $s = $candidate; $qi = 0; $bestRun = 0; $curRun = 0; $lastPos = -2
+                        for ($ci = 0; $ci -lt $s.Length; $ci++) {
+                            if ($qi -lt $q.Length -and $s[$ci] -eq $q[$qi]) {
+                                $curRun = if ($ci -eq $lastPos + 1) { $curRun + 1 } else { 1 }
+                                if ($curRun -gt $bestRun) { $bestRun = $curRun }
+                                $lastPos = $ci; $qi++
+                            }
+                        }
+                        if ($qi -eq $q.Length) { [PSCustomObject]@{ Idx = $_; Score = $bestRun } }
+                    }
+                } | Where-Object { $null -ne $_ } | Sort-Object @{E='Score';D=$true},@{E={$items[$_.Idx].Length};D=$false} | ForEach-Object { $items[$_.Idx] })
             }
         }
         if ($null -eq $filtered) { $filtered = @() }
@@ -440,7 +497,10 @@ function Show-Picker($title, [string[]]$items, $multiSelect = $false, [string[]]
                     Write-At 2 ($listY+$vi) ($label + $sub + $pad) Black White
                 } else {
                     Write-At 2 ($listY+$vi) $label White
-                    if ($sub -ne '') { Write-At (2 + $label.Length) ($listY+$vi) $sub DarkGray }
+                    if ($sub -ne '') {
+                        $subColor = if ($sub.Contains('[DEPRECATED]')) { 'Yellow' } else { 'DarkGray' }
+                        Write-At (2 + $label.Length) ($listY+$vi) $sub $subColor
+                    }
                     Write-At (2 + $label.Length + $sub.Length) ($listY+$vi) $pad
                 }
             }
@@ -1022,8 +1082,9 @@ function Scan-AssetsWithStatus {
     Clear-Host
     Write-At 2 2 'Scanning UE4 assets... (this may take a moment)' Yellow
     [Console]::CursorVisible = $false
-    $ca    = @(Scan-Assets $script:CLASS_PARENT_CLASS $script:CLASS_SCAN_PATHS '*HolderInfo.uasset')
-    $ia    = @(Scan-Assets $script:CLASS_PARENT_ITEM  $script:ITEM_SCAN_PATHS '*.uasset' '_C')
+    $allItemTypes = $script:CLASS_ITEM_WEAPON_TYPES + @($script:CLASS_ITEM_ATTACH_TYPE)
+    $ca    = @(Scan-Assets @($script:CLASS_PARENT_CLASS) $script:CLASS_SCAN_PATHS '*HolderInfo.uasset')
+    $ia    = @(Scan-Assets $allItemTypes $script:ITEM_SCAN_PATHS '*.uasset' '_C')
     $slots = @(Scan-Slots $ca)
     return @{ ClassAssets = $ca; ItemAssets = $ia; Slots = $slots }
 }
@@ -1087,7 +1148,10 @@ function Override-Actions($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots
             }
             2 {
                 if ($null -eq $itemAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
-                $newItem = Pick-Asset 'Edit Item (ZomboyInteractableActor)' $itemAssets.Value
+                $slotItems   = Get-ItemsForSlot $itemAssets.Value $o.Slot
+                $classObj    = @($classAssets.Value | Where-Object { $_.GamePath -eq $o.Class })[0]
+                $holderPath  = if ($null -ne $classObj) { $classObj.FilePath } else { $null }
+                $newItem = Pick-ItemWithDefaults "Edit Item  [$($o.Slot)]" $o.Slot $slotItems $holderPath
                 if ($null -ne $newItem) { $script:overrides[$idx].Item = $newItem; Save-Overrides; Show-Status 'Item updated.' }
             }
             3 {
@@ -1106,6 +1170,50 @@ function Override-Actions($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots
     }
 }
 
+# Filter item assets to only those valid for the given slot name.
+function Get-ItemsForSlot([PSCustomObject[]]$allItems, [string]$slotName) {
+    if ($null -eq $slotName -or $slotName -eq '' -or $allItems.Count -eq 0) { return $allItems }
+    if ($script:CLASS_ATTACHMENT_SLOTS -contains $slotName) {
+        return @($allItems | Where-Object { $_.Type -eq $script:CLASS_ITEM_ATTACH_TYPE })
+    }
+    if ($script:SLOT_ITEM_TYPES.ContainsKey($slotName)) {
+        $types = $script:SLOT_ITEM_TYPES[$slotName]
+        return @($allItems | Where-Object { $types -contains $_.Type })
+    }
+    return @($allItems | Where-Object { $script:CLASS_ITEM_WEAPON_TYPES -contains $_.Type })
+}
+
+# Returns the subset of $slotItems whose asset name tokens appear in a HolderInfo binary.
+# $slotItems should already be type-filtered by Get-ItemsForSlot so only slot-appropriate
+# items are matched against the binary.
+function Get-HolderInfoDefaults([string]$holderFilePath, [PSCustomObject[]]$slotItems, [string]$slotName = '') {
+    if ($null -eq $holderFilePath -or $holderFilePath -eq '' -or -not (Test-Path $holderFilePath)) { return @() }
+    if ($slotItems.Count -eq 0) { return @() }
+    $bytes = [System.IO.File]::ReadAllBytes($holderFilePath)
+    $text  = [System.Text.Encoding]::GetEncoding(28591).GetString($bytes)
+    return @($slotItems | Where-Object {
+        $assetName = ($_.GamePath -split '\.' | Select-Object -Last 1)  # e.g. "Bat_C"
+        $text.Contains($assetName)
+    })
+}
+
+# Single-item picker that first offers class-defaults vs all-items choice when defaults exist.
+function Pick-ItemWithDefaults($title, $slotName, [PSCustomObject[]]$slotItems, $holderFilePath) {
+    $defaultItems = if ($null -ne $holderFilePath -and $holderFilePath -ne '') { Get-HolderInfoDefaults $holderFilePath $slotItems $slotName } else { @() }
+    if ($defaultItems.Count -gt 0) {
+        $modeIdx = Show-Menu "Item source for '$slotName'" @(
+            "Class defaults ($($defaultItems.Count) items)",
+            "All items ($($slotItems.Count) items)",
+            '< Cancel'
+        )
+        if ($modeIdx -lt 0 -or $modeIdx -eq 2) { return $null }
+        $useItems = if ($modeIdx -eq 0) { $defaultItems } else { $slotItems }
+    } else {
+        $useItems = $slotItems
+    }
+    return Pick-Asset $title $useItems
+}
+
 # Pick an asset from a scanned array via fuzzy picker. Returns GamePath or $null.
 function Pick-Asset($title, [PSCustomObject[]]$assets) {
     if ($assets.Count -eq 0) {
@@ -1113,8 +1221,9 @@ function Pick-Asset($title, [PSCustomObject[]]$assets) {
         return $null
     }
     $labels    = @($assets | ForEach-Object { $_.Label })
+    $subtexts  = @($assets | ForEach-Object { if ($_.IsDeprecated) { "$($_.GamePath)  [DEPRECATED]" } else { $_.GamePath } })
     $gamePaths = @($assets | ForEach-Object { $_.GamePath })
-    $picked    = Show-Picker $title $labels $false $gamePaths 'fuzzy' $null $false
+    $picked    = Show-Picker $title $labels $false $subtexts 'fuzzy' $null $false
     if ($null -eq $picked) { return $null }
     $i = [Array]::IndexOf($labels, $picked)
     return $gamePaths[$i]
@@ -1145,7 +1254,10 @@ function Create-Override([ref]$classAssets, [ref]$itemAssets, [ref]$slots, $defa
             if ($slotIdx -lt 0) { $step-- } else { $newSlot = $classSlots[$slotIdx]; $step++ }
         } elseif ($step -eq 2) {
             if ($null -eq $itemAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
-            $newItem = Pick-Asset 'Override: Pick item (ZomboyInteractableActor)' $itemAssets.Value
+            $slotItems  = Get-ItemsForSlot $itemAssets.Value $newSlot
+            $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $newClass })[0]
+            $holderPath = if ($null -ne $classObj) { $classObj.FilePath } else { $null }
+            $newItem = Pick-ItemWithDefaults "Override: Pick item  [$newSlot]" $newSlot $slotItems $holderPath
             if ($null -eq $newItem) { $step-- } else { $step++ }
         } elseif ($step -eq 3) {
             $allTargets = @($script:users.Keys) + @($script:groups.Keys | ForEach-Object { "@$_" })
@@ -1465,21 +1577,456 @@ function Menu-Blacklist {
     }
 }
 
+# ---------------------------------------------------------------------------
+# Custom loadouts management
+# ---------------------------------------------------------------------------
+
+function Load-CustomLoadouts {
+    $script:customLoadouts = [System.Collections.Generic.List[hashtable]]::new()
+    if (-not (Test-Path $script:CustomLoadoutsFile)) { return }
+    $lines      = Get-Content $script:CustomLoadoutsFile
+    $curLoadout = $null
+    $curClass   = $null
+    $curSlot    = $null
+    foreach ($line in $lines) {
+        $l = $line.Trim()
+        if ($l -match '^LOADOUT:\s*(.+)') {
+            if ($null -ne $curSlot  -and $null -ne $curClass)   { $curClass.Slots.Add($curSlot); $curSlot = $null }
+            if ($null -ne $curClass -and $null -ne $curLoadout) { $curLoadout.Classes.Add($curClass); $curClass = $null }
+            if ($null -ne $curLoadout) { $script:customLoadouts.Add($curLoadout) }
+            $curLoadout = @{ Name = $Matches[1].Trim(); SaveId = '0'; Classes = [System.Collections.Generic.List[hashtable]]::new() }
+        } elseif ($l -match '^SAVE_ID:\s*(.*)' -and $null -ne $curLoadout -and $null -eq $curClass) {
+            $curLoadout.SaveId = $Matches[1].Trim()
+        } elseif ($l -match '^CLASS:\s*(.+)') {
+            if ($null -ne $curSlot  -and $null -ne $curClass)   { $curClass.Slots.Add($curSlot); $curSlot = $null }
+            if ($null -ne $curClass -and $null -ne $curLoadout) { $curLoadout.Classes.Add($curClass) }
+            $curClass = @{ Class = $Matches[1].Trim(); Slots = [System.Collections.Generic.List[hashtable]]::new() }
+        } elseif ($l -match '^SLOT:\s*(.*)' -and $null -ne $curClass) {
+            if ($null -ne $curSlot) { $curClass.Slots.Add($curSlot) }
+            $curSlot = @{ Slot = $Matches[1].Trim(); HasNone = 'false'; DefaultItem = ''; Category = ''; Items = [System.Collections.Generic.List[string]]::new() }
+        } elseif ($null -ne $curSlot) {
+            if      ($l -match '^HAS_NONE:\s*(.*)')      { $curSlot.HasNone     = $Matches[1].Trim() }
+            elseif  ($l -match '^DEFAULT_ITEM:\s*(.*)')  { $curSlot.DefaultItem = $Matches[1].Trim() }
+            elseif  ($l -match '^CATEGORY:\s*(.*)')      { $curSlot.Category    = $Matches[1].Trim() }
+            elseif  ($l -match '^ITEM:\s*(.+)')          { $curSlot.Items.Add($Matches[1].Trim()) }
+        }
+    }
+    if ($null -ne $curSlot  -and $null -ne $curClass)   { $curClass.Slots.Add($curSlot) }
+    if ($null -ne $curClass -and $null -ne $curLoadout) { $curLoadout.Classes.Add($curClass) }
+    if ($null -ne $curLoadout) { $script:customLoadouts.Add($curLoadout) }
+}
+
+function Save-CustomLoadouts {
+    $out   = [System.Collections.Generic.List[string]]::new()
+    $first = $true
+    foreach ($lo in $script:customLoadouts) {
+        if (-not $first) { $out.Add('') }
+        $out.Add("LOADOUT: $($lo.Name)")
+        $sid = if ($null -eq $lo.SaveId -or $lo.SaveId -eq '') { '0' } else { $lo.SaveId }
+        $out.Add("SAVE_ID: $sid")
+        foreach ($c in $lo.Classes) {
+            $out.Add("CLASS: $($c.Class)")
+            foreach ($s in $c.Slots) {
+                $out.Add("SLOT: $($s.Slot)")
+                $out.Add("HAS_NONE: $($s.HasNone)")
+                if ($s.DefaultItem -ne '') { $out.Add("DEFAULT_ITEM: $($s.DefaultItem)") }
+                $out.Add("CATEGORY: $($s.Category)")
+                foreach ($item in $s.Items) { $out.Add("ITEM: $item") }
+            }
+        }
+        $first = $false
+    }
+    Set-Content -Path $script:CustomLoadoutsFile -Value $out.ToArray() -Encoding UTF8
+}
+
+function Format-LoadoutClassLabel($c) {
+    $cls = ($c.Class -split '/' | Select-Object -Last 1) -replace '\..+$'
+    "$cls  [$($c.Slot)]  ($($c.Items.Count) items)"
+}
+
+function Menu-CustomLoadouts {
+    $classAssets = $null
+    $itemAssets  = $null
+    $slots       = $null
+    while ($true) {
+        $CREATE_NEW = '+ Create new loadout'
+        $labels     = @($CREATE_NEW) + @($script:customLoadouts | ForEach-Object { "$($_.Name)  ($($_.Classes.Count) classes)" })
+        $picked = Show-Picker "Custom Loadouts ($($script:customLoadouts.Count))" $labels
+        if ($null -eq $picked) { return }
+        if ($picked -eq $CREATE_NEW) {
+            Create-CustomLoadout ([ref]$classAssets) ([ref]$itemAssets) ([ref]$slots)
+        } else {
+            $idx = [Array]::IndexOf($labels, $picked) - 1
+            if ($idx -ge 0) { Loadout-Actions $idx ([ref]$classAssets) ([ref]$itemAssets) ([ref]$slots) }
+        }
+    }
+}
+
+function Create-CustomLoadout([ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    Clear-Host
+    Write-At 2 1 'Create Custom Loadout' Cyan
+    Write-At 2 2 'Esc to cancel.' DarkGray
+    $name = $null
+    while ($true) {
+        Clear-Region 2 5 ([Console]::WindowWidth - 4) 1
+        $name = Read-Line-TUI 2 3 'Loadout name: '
+        if ($null -eq $name) { return }
+        $name = $name.Trim()
+        if ($name -eq '') { Show-Error 'Name cannot be empty.'; continue }
+        if (@($script:customLoadouts | Where-Object { $_.Name -eq $name }).Count -gt 0) { Show-Error "Loadout '$name' already exists."; continue }
+        break
+    }
+    $saveId = $null
+    while ($true) {
+        Clear-Region 2 5 ([Console]::WindowWidth - 4) 1
+        $saveId = Read-Line-TUI 2 4 'Save ID (integer, default 0): ' '0'
+        if ($null -eq $saveId) { return }
+        $saveId = $saveId.Trim()
+        if ($saveId -eq '') { $saveId = '0' }
+        $tmp = 0
+        if (-not [int]::TryParse($saveId, [ref]$tmp)) { Show-Error 'Save ID must be an integer.' 5; continue }
+        break
+    }
+    $script:customLoadouts.Add(@{ Name = $name; SaveId = $saveId; Classes = [System.Collections.Generic.List[hashtable]]::new() })
+    Save-CustomLoadouts
+    $idx = $script:customLoadouts.Count - 1
+    Show-Status "Created loadout '$name'."
+    Loadout-Actions $idx $classAssets $itemAssets $slots
+}
+
+function Loadout-Actions($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    while ($true) {
+        $lo = $script:customLoadouts[$idx]
+        $saveIdLabel = if ($null -eq $lo.SaveId -or $lo.SaveId -eq '') { '0' } else { $lo.SaveId }
+        $c = Show-Menu $lo.Name @(
+            "Manage classes ($($lo.Classes.Count))",
+            "Save ID:  $saveIdLabel",
+            'Rename',
+            'Delete',
+            '< Back'
+        )
+        switch ($c) {
+            -1 { return }
+            4  { return }
+            0  { Loadout-Classes $idx $classAssets $itemAssets $slots }
+            1  {
+                Clear-Host
+                Write-At 2 1 "Edit Save ID: $($lo.Name)" Cyan
+                $newId = $null
+                while ($true) {
+                    Clear-Region 2 5 ([Console]::WindowWidth - 4) 1
+                    $newId = Read-Line-TUI 2 3 'Save ID: ' $saveIdLabel
+                    if ($null -eq $newId) { break }
+                    $newId = $newId.Trim()
+                    if ($newId -eq '') { $newId = '0' }
+                    $tmp = 0
+                    if (-not [int]::TryParse($newId, [ref]$tmp)) { Show-Error 'Save ID must be an integer.' 5; continue }
+                    break
+                }
+                if ($null -ne $newId) { $script:customLoadouts[$idx].SaveId = $newId; Save-CustomLoadouts; Show-Status 'Save ID updated.' }
+            }
+            2  {
+                Clear-Host
+                Write-At 2 1 "Rename: $($lo.Name)" Cyan
+                $newName = $null
+                while ($true) {
+                    Clear-Region 2 5 ([Console]::WindowWidth - 4) 1
+                    $newName = Read-Line-TUI 2 3 'New name: ' $lo.Name
+                    if ($null -eq $newName) { break }
+                    $newName = $newName.Trim()
+                    if ($newName -eq '') { $newName = $lo.Name; break }
+                    if ($newName -ne $lo.Name -and (@($script:customLoadouts | Where-Object { $_.Name -eq $newName }).Count -gt 0)) {
+                        Show-Error "Loadout '$newName' already exists."; continue
+                    }
+                    break
+                }
+                if ($null -ne $newName -and $newName -ne '') {
+                    $script:customLoadouts[$idx].Name = $newName
+                    Save-CustomLoadouts
+                    Show-Status "Renamed to '$newName'."
+                }
+            }
+            3  {
+                $c2 = Show-Menu "Delete '$($lo.Name)'?" @('Yes, delete', '< Cancel')
+                if ($c2 -eq 0) {
+                    $script:customLoadouts.RemoveAt($idx)
+                    Save-CustomLoadouts
+                    Show-Status "Deleted '$($lo.Name)'." Yellow
+                    return
+                }
+            }
+        }
+    }
+}
+
+function Loadout-Classes($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    while ($true) {
+        $lo          = $script:customLoadouts[$idx]
+        $classLabels = @($lo.Classes | ForEach-Object { Format-LoadoutClassLabel $_ })
+        $items       = @('+ Add class') + $classLabels + @('< Back')
+        $c = Show-Menu "$($lo.Name) - Classes ($($lo.Classes.Count))" $items
+        if ($c -lt 0 -or $c -eq ($items.Count - 1)) { return }
+        if ($c -eq 0) {
+            Create-LoadoutClass $idx $classAssets $itemAssets $slots
+        } else {
+            Class-Actions $idx ($c - 1) $classAssets $itemAssets $slots
+        }
+    }
+}
+
+function Create-LoadoutClass($loadoutIdx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
+    $newClass   = $null
+    $newSlot    = $null
+    $newHasNone = 'false'
+    $newCat     = ''
+    $step = 0   # 0=class, 1=slot, 2=has_none, 3=category
+    while ($step -le 3) {
+        if ($step -eq 0) {
+            $newClass = Pick-Asset 'New class: Pick HolderInfo asset' $classAssets.Value
+            if ($null -eq $newClass) { return }
+            $step++
+        } elseif ($step -eq 1) {
+            $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $newClass })[0]
+            $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
+            if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
+            $slotIdx = Show-Menu 'New class: Pick slot' $classSlots
+            if ($slotIdx -lt 0) { $step-- } else { $newSlot = $classSlots[$slotIdx]; $step++ }
+        } elseif ($step -eq 2) {
+            $hasNoneIdx = Show-Menu 'HAS_NONE  (allow empty slot selection)?' @('false', 'true')
+            if ($hasNoneIdx -lt 0) { $step-- } else { $newHasNone = @('false', 'true')[$hasNoneIdx]; $step++ }
+        } elseif ($step -eq 3) {
+            Clear-Host
+            Write-At 2 1 'Category name' Cyan
+            Write-At 2 2 "(usually matches the slot name, e.g. '$newSlot')" DarkGray
+            $newCat = Read-Line-TUI 2 4 'Category: ' $newSlot
+            if ($null -eq $newCat) { $step-- } else { $newCat = $newCat.Trim(); $step++ }
+        }
+    }
+    $newSlotEntry = @{
+        Slot        = $newSlot
+        HasNone     = $newHasNone
+        DefaultItem = ''
+        Category    = $newCat
+        Items       = [System.Collections.Generic.List[string]]::new()
+    }
+    $newClassEntry = @{
+        Class = $newClass
+        Slots = [System.Collections.Generic.List[hashtable]]::new()
+    }
+    $newClassEntry.Slots.Add($newSlotEntry)
+    $script:customLoadouts[$loadoutIdx].Classes.Add($newClassEntry)
+    Save-CustomLoadouts
+    $newIdx = $script:customLoadouts[$loadoutIdx].Classes.Count - 1
+    Show-Status 'Class added. You can now manage its slots.'
+    Class-Actions $loadoutIdx $newIdx $classAssets $itemAssets $slots
+}
+
+function Class-Actions($loadoutIdx, $classIdx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    while ($true) {
+        $c_obj    = $script:customLoadouts[$loadoutIdx].Classes[$classIdx]
+        $clsShort = ($c_obj.Class -split '/' | Select-Object -Last 1) -replace '\..+$'
+        $c = Show-Menu $clsShort @(
+            "Class:       $clsShort",
+            "Slots ($($c_obj.Slots.Count)): Manage",
+            'Delete class',
+            '< Back'
+        )
+        switch ($c) {
+            -1 { return }
+            3  { return }
+            0 {
+                if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
+                $newClass = Pick-Asset 'Edit Class (HolderInfo asset)' $classAssets.Value
+                if ($null -ne $newClass) { $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Class = $newClass; Save-CustomLoadouts; Show-Status 'Class updated.' }
+            }
+            1 { Class-Slots $loadoutIdx $classIdx $classAssets $itemAssets $slots }
+            2 {
+                $c2 = Show-Menu "Delete class '$clsShort'?" @('Yes, delete', '< Cancel')
+                if ($c2 -eq 0) {
+                    $script:customLoadouts[$loadoutIdx].Classes.RemoveAt($classIdx)
+                    Save-CustomLoadouts
+                    Show-Status 'Class deleted.' Yellow
+                    return
+                }
+            }
+        }
+    }
+}
+
+function Class-Slots($loadoutIdx, $classIdx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    while ($true) {
+        $c_obj      = $script:customLoadouts[$loadoutIdx].Classes[$classIdx]
+        $clsShort   = ($c_obj.Class -split '/' | Select-Object -Last 1) -replace '\..+$'
+        $slotLabels = @($c_obj.Slots | ForEach-Object { "$($_.Slot)  ($($_.Items.Count) items)" })
+        $menuItems  = @('+ Add slot') + $slotLabels + @('< Back')
+        $c = Show-Menu "$clsShort - Slots ($($c_obj.Slots.Count))" $menuItems
+        if ($c -lt 0 -or $c -eq ($menuItems.Count - 1)) { return }
+        if ($c -eq 0) { Create-ClassSlot $loadoutIdx $classIdx $classAssets $itemAssets $slots }
+        else          { Slot-Actions $loadoutIdx $classIdx ($c - 1) $classAssets $itemAssets $slots }
+    }
+}
+
+function Create-ClassSlot($loadoutIdx, $classIdx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
+    $c_obj      = $script:customLoadouts[$loadoutIdx].Classes[$classIdx]
+    $newSlot    = $null
+    $newHasNone = 'false'
+    $newCat     = ''
+    $step = 0   # 0=slot, 1=has_none, 2=category
+    while ($step -le 2) {
+        if ($step -eq 0) {
+            $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $c_obj.Class })[0]
+            $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
+            if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
+            $si = Show-Menu 'Add Slot: Pick slot' $classSlots
+            if ($si -lt 0) { return } else { $newSlot = $classSlots[$si]; $step++ }
+        } elseif ($step -eq 1) {
+            $hi = Show-Menu 'HAS_NONE  (allow empty slot selection)?' @('false', 'true')
+            if ($hi -lt 0) { $step-- } else { $newHasNone = @('false', 'true')[$hi]; $step++ }
+        } elseif ($step -eq 2) {
+            Clear-Host
+            Write-At 2 1 'Category name' Cyan
+            Write-At 2 2 "(usually matches the slot name, e.g. '$newSlot')" DarkGray
+            $newCat = Read-Line-TUI 2 4 'Category: ' $newSlot
+            if ($null -eq $newCat) { $step-- } else { $newCat = $newCat.Trim(); $step++ }
+        }
+    }
+    $newSlotEntry = @{ Slot = $newSlot; HasNone = $newHasNone; DefaultItem = ''; Category = $newCat; Items = [System.Collections.Generic.List[string]]::new() }
+    $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots.Add($newSlotEntry)
+    Save-CustomLoadouts
+    $newSlotIdx = $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots.Count - 1
+    Show-Status 'Slot added.'
+    Slot-Actions $loadoutIdx $classIdx $newSlotIdx $classAssets $itemAssets $slots
+}
+
+function Slot-Actions($loadoutIdx, $classIdx, $slotIdx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
+    while ($true) {
+        $c_obj    = $script:customLoadouts[$loadoutIdx].Classes[$classIdx]
+        $s_obj    = $c_obj.Slots[$slotIdx]
+        $slotName = $s_obj.Slot
+        $defShort = if ($s_obj.DefaultItem -ne '') { ($s_obj.DefaultItem -split '/' | Select-Object -Last 1) -replace '\..+$' } else { '(none)' }
+        $c = Show-Menu $slotName @(
+            "Slot:          $slotName",
+            "HAS_NONE:      $($s_obj.HasNone)",
+            "Default item:  $defShort",
+            "Category:      $($s_obj.Category)",
+            "Items ($($s_obj.Items.Count)): Manage",
+            'Delete slot',
+            '< Back'
+        )
+        switch ($c) {
+            -1 { return }
+            6  { return }
+            0 {
+                if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
+                $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $c_obj.Class })[0]
+                $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
+                if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
+                $newSlotI = Show-Menu 'Edit Slot' $classSlots
+                if ($newSlotI -ge 0) { $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].Slot = $classSlots[$newSlotI]; Save-CustomLoadouts; Show-Status 'Slot updated.' }
+            }
+            1 {
+                $newVal = if ($s_obj.HasNone.ToLower() -eq 'true') { 'false' } else { 'true' }
+                $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].HasNone = $newVal
+                Save-CustomLoadouts
+            }
+            2 {
+                $curItems = @($script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].Items)
+                if ($curItems.Count -eq 0) {
+                    Show-Status 'No items in this slot yet. Add items first.' Yellow
+                } else {
+                    $itemLabels = @($curItems | ForEach-Object { ($_ -split '/' | Select-Object -Last 1) -replace '\..+$' })
+                    $options    = @('(none)') + $itemLabels
+                    $curDef     = $s_obj.DefaultItem
+                    $curDefLbl  = if ($curDef -ne '') { ($curDef -split '/' | Select-Object -Last 1) -replace '\..+$' } else { '(none)' }
+                    $initIdx    = [Array]::IndexOf($options, $curDefLbl); if ($initIdx -lt 0) { $initIdx = 0 }
+                    $selIdx     = Show-Menu 'Set default item' $options '' $initIdx
+                    if ($selIdx -ge 0) {
+                        $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].DefaultItem = if ($selIdx -eq 0) { '' } else { $curItems[$selIdx - 1] }
+                        Save-CustomLoadouts
+                        Show-Status 'Default item updated.'
+                    }
+                }
+            }
+            3 {
+                Clear-Host
+                Write-At 2 1 'Edit Category' Cyan
+                $newCat = Read-Line-TUI 2 3 'Category: ' $s_obj.Category
+                if ($null -ne $newCat) { $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].Category = $newCat.Trim(); Save-CustomLoadouts; Show-Status 'Category updated.' }
+            }
+            4 {
+                if ($null -eq $itemAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
+                $slotItems    = Get-ItemsForSlot $itemAssets.Value $slotName
+                $curItems     = @($script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].Items)
+                $classObj     = @($classAssets.Value | Where-Object { $_.GamePath -eq $c_obj.Class })[0]
+                $defaultItems = if ($null -ne $classObj) { Get-HolderInfoDefaults $classObj.FilePath $slotItems $slotName } else { @() }
+                $useItems     = $slotItems
+                if ($defaultItems.Count -gt 0) {
+                    $modeIdx = Show-Menu "Item source for slot '$slotName'" @(
+                        "Class defaults ($($defaultItems.Count) items)",
+                        "All items ($($slotItems.Count) items)",
+                        '< Cancel'
+                    )
+                    if ($modeIdx -lt 0 -or $modeIdx -eq 2) { break }
+                    if ($modeIdx -eq 0) {
+                        $defPathSet = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
+                        foreach ($di in $defaultItems) { $defPathSet.Add($di.GamePath) | Out-Null }
+                        $extras   = @($slotItems | Where-Object { -not $defPathSet.Contains($_.GamePath) -and $curItems -contains $_.GamePath })
+                        $useItems = @($defaultItems) + $extras
+                    }
+                }
+                $allLabels    = @($useItems | ForEach-Object { $_.Label })
+                $allGamePaths = @($useItems | ForEach-Object { $_.GamePath })
+                $preSelected  = @($curItems | ForEach-Object {
+                    $gp = $_; $ii = [Array]::IndexOf($allGamePaths, $gp)
+                    if ($ii -ge 0) { $allLabels[$ii] } else { $null }
+                } | Where-Object { $null -ne $_ })
+                $picked = Show-Picker "Items: $slotName  (Space=toggle, Enter=confirm)" $allLabels $true $allGamePaths 'fuzzy' $preSelected $false
+                if ($null -ne $picked) {
+                    $newPaths = [System.Collections.Generic.List[string]]::new()
+                    foreach ($lbl in $picked) {
+                        $ii = [Array]::IndexOf($allLabels, $lbl)
+                        if ($ii -ge 0) { $newPaths.Add($allGamePaths[$ii]) }
+                    }
+                    $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].Items = $newPaths
+                    if ($s_obj.DefaultItem -ne '' -and -not $newPaths.Contains($s_obj.DefaultItem)) {
+                        $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].DefaultItem = ''
+                    }
+                    Save-CustomLoadouts
+                    Show-Status "Items updated ($($newPaths.Count) items)."
+                }
+            }
+            5 {
+                $c2 = Show-Menu "Delete slot '$slotName'?" @('Yes, delete', '< Cancel')
+                if ($c2 -eq 0) {
+                    $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots.RemoveAt($slotIdx)
+                    Save-CustomLoadouts
+                    Show-Status 'Slot deleted.' Yellow
+                    return
+                }
+            }
+        }
+    }
+}
+
 Load-Data
 Load-Overrides
+Load-CustomLoadouts
 Hide-Cursor
 
 try {
     while ($true) {
-        $c = Show-Menu 'Feathered Unicorns - Manager' @('Manage Users', 'Manage Groups', 'Manage Loadout Overrides', 'Manage Blacklist', 'Exit') `
-            "Users: $($script:users.Count)   Groups: $($script:groups.Count)   Overrides: $($script:overrides.Count)"
+        $c = Show-Menu 'Feathered Unicorns - Manager' @('Manage Users', 'Manage Groups', 'Manage Loadout Overrides', 'Manage Custom Loadouts', 'Manage Blacklist', 'Exit') `
+            "Users: $($script:users.Count)   Groups: $($script:groups.Count)   Overrides: $($script:overrides.Count)   Loadouts: $($script:customLoadouts.Count)"
         switch ($c) {
             -1 { break }
             0  { Menu-Users }
             1  { Menu-Groups }
             2  { Menu-Overrides }
-            3  { Menu-Blacklist }
-            4  { Clear-Host; Show-Cursor; exit }
+            3  { Menu-CustomLoadouts }
+            4  { Menu-Blacklist }
+            5  { Clear-Host; Show-Cursor; exit }
         }
     }
 } catch {
