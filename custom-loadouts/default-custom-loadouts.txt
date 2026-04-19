@@ -105,10 +105,10 @@ ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Knife/Knife.Knife_C
 SLOT: Pda
 HAS_NONE: false
 DEFAULT_ITEM: /Game/tf2_commons_v142/Loadout/Weapons/DisguiseKit/DisguiseKit.DisguiseKit_C
-CATEGORY: Gadget
+CATEGORY: Melee
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/DisguiseKit/DisguiseKit.DisguiseKit_C
 SLOT: Watch
 HAS_NONE: false
 DEFAULT_ITEM: /Game/tf2_commons_v142/Loadout/Weapons/InvisWatch/InvisWatch.InvisWatch_C
-CATEGORY: Gadget
+CATEGORY: Primary
 ITEM: /Game/tf2_commons_v142/Loadout/Weapons/InvisWatch/InvisWatch.InvisWatch_C

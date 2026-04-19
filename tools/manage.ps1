@@ -1640,8 +1640,11 @@ function Save-CustomLoadouts {
 }
 
 function Format-LoadoutClassLabel($c) {
-    $cls = ($c.Class -split '/' | Select-Object -Last 1) -replace '\..+$'
-    "$cls  [$($c.Slot)]  ($($c.Items.Count) items)"
+    $cls        = ($c.Class -split '/' | Select-Object -Last 1) -replace '\..+$'
+    $slotNames  = if ($c.Slots.Count -gt 0) { (@($c.Slots | ForEach-Object { $_.Slot })) -join ', ' } else { 'no slots' }
+    $totalItems = ($c.Slots | ForEach-Object { $_.Items.Count } | Measure-Object -Sum).Sum
+    if ($null -eq $totalItems) { $totalItems = 0 }
+    "$cls  [$slotNames]  ($totalItems items)"
 }
 
 function Menu-CustomLoadouts {
@@ -1776,49 +1779,16 @@ function Loadout-Classes($idx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots)
 
 function Create-LoadoutClass($loadoutIdx, [ref]$classAssets, [ref]$itemAssets, [ref]$slots) {
     if ($null -eq $classAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
-    $newClass   = $null
-    $newSlot    = $null
-    $newHasNone = 'false'
-    $newCat     = ''
-    $step = 0   # 0=class, 1=slot, 2=has_none, 3=category
-    while ($step -le 3) {
-        if ($step -eq 0) {
-            $newClass = Pick-Asset 'New class: Pick HolderInfo asset' $classAssets.Value
-            if ($null -eq $newClass) { return }
-            $step++
-        } elseif ($step -eq 1) {
-            $classObj   = @($classAssets.Value | Where-Object { $_.GamePath -eq $newClass })[0]
-            $classSlots = if ($null -ne $classObj) { @(Scan-Slots @($classObj)) } else { @() }
-            if ($classSlots.Count -eq 0) { $classSlots = @($slots.Value) }
-            $slotIdx = Show-Menu 'New class: Pick slot' $classSlots
-            if ($slotIdx -lt 0) { $step-- } else { $newSlot = $classSlots[$slotIdx]; $step++ }
-        } elseif ($step -eq 2) {
-            $hasNoneIdx = Show-Menu 'HAS_NONE  (allow empty slot selection)?' @('false', 'true')
-            if ($hasNoneIdx -lt 0) { $step-- } else { $newHasNone = @('false', 'true')[$hasNoneIdx]; $step++ }
-        } elseif ($step -eq 3) {
-            Clear-Host
-            Write-At 2 1 'Category name' Cyan
-            Write-At 2 2 "(usually matches the slot name, e.g. '$newSlot')" DarkGray
-            $newCat = Read-Line-TUI 2 4 'Category: ' $newSlot
-            if ($null -eq $newCat) { $step-- } else { $newCat = $newCat.Trim(); $step++ }
-        }
-    }
-    $newSlotEntry = @{
-        Slot        = $newSlot
-        HasNone     = $newHasNone
-        DefaultItem = ''
-        Category    = $newCat
-        Items       = [System.Collections.Generic.List[string]]::new()
-    }
+    $newClass = Pick-Asset 'New class: Pick HolderInfo asset' $classAssets.Value
+    if ($null -eq $newClass) { return }
     $newClassEntry = @{
         Class = $newClass
         Slots = [System.Collections.Generic.List[hashtable]]::new()
     }
-    $newClassEntry.Slots.Add($newSlotEntry)
     $script:customLoadouts[$loadoutIdx].Classes.Add($newClassEntry)
     Save-CustomLoadouts
     $newIdx = $script:customLoadouts[$loadoutIdx].Classes.Count - 1
-    Show-Status 'Class added. You can now manage its slots.'
+    Show-Status 'Class added. Add slots to configure it.'
     Class-Actions $loadoutIdx $newIdx $classAssets $itemAssets $slots
 }
 
@@ -1885,11 +1855,9 @@ function Create-ClassSlot($loadoutIdx, $classIdx, [ref]$classAssets, [ref]$itemA
             $hi = Show-Menu 'HAS_NONE  (allow empty slot selection)?' @('false', 'true')
             if ($hi -lt 0) { $step-- } else { $newHasNone = @('false', 'true')[$hi]; $step++ }
         } elseif ($step -eq 2) {
-            Clear-Host
-            Write-At 2 1 'Category name' Cyan
-            Write-At 2 2 "(usually matches the slot name, e.g. '$newSlot')" DarkGray
-            $newCat = Read-Line-TUI 2 4 'Category: ' $newSlot
-            if ($null -eq $newCat) { $step-- } else { $newCat = $newCat.Trim(); $step++ }
+            $catOptions = @('Primary', 'Sidearm', 'Melee', 'Gadget')
+            $catIdx = Show-Menu 'Add Slot: Category' $catOptions
+            if ($catIdx -lt 0) { $step-- } else { $newCat = $catOptions[$catIdx]; $step++ }
         }
     }
     $newSlotEntry = @{ Slot = $newSlot; HasNone = $newHasNone; DefaultItem = ''; Category = $newCat; Items = [System.Collections.Generic.List[string]]::new() }
@@ -1950,10 +1918,10 @@ function Slot-Actions($loadoutIdx, $classIdx, $slotIdx, [ref]$classAssets, [ref]
                 }
             }
             3 {
-                Clear-Host
-                Write-At 2 1 'Edit Category' Cyan
-                $newCat = Read-Line-TUI 2 3 'Category: ' $s_obj.Category
-                if ($null -ne $newCat) { $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].Category = $newCat.Trim(); Save-CustomLoadouts; Show-Status 'Category updated.' }
+                $catOptions = @('Primary', 'Sidearm', 'Melee', 'Gadget')
+                $initCat = [Array]::IndexOf($catOptions, $s_obj.Category); if ($initCat -lt 0) { $initCat = 0 }
+                $catIdx = Show-Menu 'Edit Category' $catOptions '' $initCat
+                if ($catIdx -ge 0) { $script:customLoadouts[$loadoutIdx].Classes[$classIdx].Slots[$slotIdx].Category = $catOptions[$catIdx]; Save-CustomLoadouts; Show-Status 'Category updated.' }
             }
             4 {
                 if ($null -eq $itemAssets.Value) { $scan = Scan-AssetsWithStatus; $classAssets.Value = $scan.ClassAssets; $itemAssets.Value = $scan.ItemAssets; $slots.Value = $scan.Slots }
