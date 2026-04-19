@@ -1,4 +1,5 @@
 ﻿LOADOUT: Melee Only
+THUMBNAIL_URL: https://cataas.com/cat
 SAVE_ID: 0
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Melee
