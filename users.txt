@@ -147,6 +147,8 @@ NAME: JackORevan
 UID: gwokglvxlp0d4
 NAME: Tojo
 UID: udybrhlryx3d2
+NAME: LennyGuy
+UID: kwffmjkvzh12d
 
 #endregion
 
@@ -158,5 +160,5 @@ MEMBERS: UE4Editor,1jack0,TakerPC,TakerQuest,AlessAnimates,cool.guy,TylerTheMast
 GROUP: testers
 MEMBERS: UE4Editor,teh.saint,1jack0,Borked Emerald,BarpleBapkins,MercuryNix1,TakerQuest,TakerPC,The_exquisite_crow,I HATE MY WIFE,Punk3D,Schrampe,AlessAnimates,QuackBoi,AWDUCKZ,wokgeta,Jason_a_c,Sajkokiller,Doublezoinks,NeedleGod,Penapeanut4,DemoGoblin,engineer,Lennox0,femboykisser1,CrazyMan616,Solairs,PurplePotato,plushiej20,JohnTheBunny,tinyblood,chumby_vr,Oatsy-Jr,theyoinkysploinky,bustermp,MercuryNix1,Yourepissing,Noelle_Holiday,maxblueninja1,wrenchwielder220,Spingle_Blab,SGT_JOHN_RAMBO,TypedTim,Skytheprotogens,1LuckyLo,Unknowings,Lime The Sliced!,Maj._Problem,BraydenisOrange,space_or,lime.263484,PURPLE_LOVA,StalkrZ,Normie101,CreativeUsername,14KEGAN,manolobiene
 GROUP: devs
-MEMBERS: UE4Editor,manolobiene,DemoGoblin,Solairs,Randy,IconicQuest,IconicPC,SoapyQuest,SoapyPC,XFemboy
+MEMBERS: UE4Editor,manolobiene,DemoGoblin,Solairs,Randy,IconicQuest,IconicPC,SoapyQuest,SoapyPC,XFemboy,LennyGuy
 #endregion
