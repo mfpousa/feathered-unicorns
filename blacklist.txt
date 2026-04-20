@@ -1,4 +1,4 @@
-﻿L!ListBegin
+L!ListBegin
 NAME: THE_BOSS
 UID: sqcskouvqw031
 PUNISHMENT: MUTE
@@ -778,5 +778,10 @@ NAME: Siracha1600
 UID: nwlqiooubg36d
 PUNISHMENT: BAN
 REASON: 
+END_DATE: 0
+NAME: PRIME_raper
+UID: frcvqzbmcz29c
+PUNISHMENT: BAN
+REASON: nsfw pfp
 END_DATE: 0
 L!ListEnd
