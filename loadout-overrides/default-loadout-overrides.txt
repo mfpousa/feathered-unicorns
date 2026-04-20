@@ -13,7 +13,7 @@ TAG: DEV ITEMS
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/MellowshatDemo/Demo_MellowHat.Demo_MellowHat_C
-PLAYERS: Mellow
+PLAYERS: MellowBomb
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
