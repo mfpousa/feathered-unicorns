@@ -784,4 +784,9 @@ UID: frcvqzbmcz29c
 PUNISHMENT: BAN
 REASON: nsfw pfp
 END_DATE: 0
+NAME: Yo_Mamas_fatahh
+UID: vxcowhfyba296
+PUNISHMENT: BAN
+REASON: Multiple Hard Rs
+END_DATE: 0
 L!ListEnd
