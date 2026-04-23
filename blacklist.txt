@@ -762,7 +762,7 @@ END_DATE: 0
 NAME: Noelsoto1009
 UID: sikwvyguwe1b2
 PUNISHMENT: BAN
-REASON: 
+REASON: inappropriate pfp, can appeal in discord after change
 END_DATE: 0
 NAME: 0._.ICEYYYY0
 UID: yhtyctxidj1d0
@@ -799,4 +799,39 @@ UID: crpccealfb2eb
 PUNISHMENT: BAN
 REASON: pfp of mass shooter
 END_DATE: 0
+NAME: CAW3112
+UID: acydwcxwbc33d
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
+NAME: scat.big.yuhu
+UID: wlwoyszcwm0cd
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
+NAME: Nlack.Bigger
+UID: umijzfotdi1d0
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
+NAME: jhoffman1776
+UID: flrturznqm17c
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
+NAME: Maplevoid
+UID: gdgdhsmtnh1c2
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
+NAME: n5l
+UID: xzqswvhmut268
+PUNISHMENT: BAN
+REASON: HARASSMENT
+END_DATE: 0
+NAME: heheuue
+UID: pjxdjlnlsi0f6
+PUNISHMENT: BAN
+REASON: underaged
+END_DATE: 1798761600
 L!ListEnd
