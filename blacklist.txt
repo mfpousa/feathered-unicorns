@@ -789,4 +789,9 @@ UID: vxcowhfyba296
 PUNISHMENT: BAN
 REASON: Multiple Hard Rs
 END_DATE: 0
+NAME: Adolf_Skippy
+UID: aheyqavsfj3eb
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
 L!ListEnd
