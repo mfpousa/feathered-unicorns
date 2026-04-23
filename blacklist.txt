@@ -794,4 +794,9 @@ UID: aheyqavsfj3eb
 PUNISHMENT: BAN
 REASON: TOXICITY
 END_DATE: 0
+NAME: ZZsaint
+UID: crpccealfb2eb
+PUNISHMENT: BAN
+REASON: pfp of mass shooter
+END_DATE: 0
 L!ListEnd
