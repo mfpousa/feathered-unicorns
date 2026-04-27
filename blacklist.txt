@@ -194,11 +194,6 @@ UID: xafgduumml11d
 PUNISHMENT: BAN
 REASON: 
 END_DATE: 0
-NAME: Luni
-UID: vhjhxldttq290
-PUNISHMENT: BAN
-REASON: 
-END_DATE: 0
 NAME: i'm.sick.of.the.trans.freaks
 UID: bmwtpebogz3bd
 PUNISHMENT: BAN
