@@ -431,7 +431,7 @@ PLAYERS: @devs
 TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
-SLOT: Misc
+SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/ShortnessOfBreath/ShortnessOfBreath.ShortnessOfBreath_C
 PLAYERS: SoapyPC,SoapyQuest
 TAG: DEV ITEMS
