@@ -430,7 +430,7 @@ ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_
 PLAYERS: @devs
 TAG: DEV ITEMS
 
-CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
 SLOT: Misc
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/Cosmetics/ShortnessOfBreath/ShortnessOfBreath.ShortnessOfBreath_C
 PLAYERS: SoapyPC,SoapyQuest
