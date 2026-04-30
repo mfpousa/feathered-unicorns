@@ -112,12 +112,6 @@ ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/Cosmetics/MrNoBodyDev/MrN
 PLAYERS: Mr.NoBody
 TAG: DEV ITEMS
 
-CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
-SLOT: Misc
-ITEM: /Game/Contributions/SoapyHat/ShortnessOfBreathAttachment.ShortnessOfBreathAttachment_C
-PLAYERS: SoapyQuest,SoapyPC
-TAG: DEV ITEMS
-
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/ThirstBlood/Scout_ThirstBlood.Scout_ThirstBlood_C
@@ -434,4 +428,10 @@ CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Spy/TF2_Spy_HolderInfo.TF2_Spy_Ho
 SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/MultipleClassCosmetics/Scouter/BP_Scouter.BP_Scouter_C
 PLAYERS: @devs
+TAG: DEV ITEMS
+
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/TF2_Pyro_HolderInfo.TF2_Pyro_HolderInfo
+SLOT: Misc
+ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Pyro/Cosmetics/ShortnessOfBreath/ShortnessOfBreath.ShortnessOfBreath_C
+PLAYERS: SoapyPC,SoapyQuest
 TAG: DEV ITEMS
