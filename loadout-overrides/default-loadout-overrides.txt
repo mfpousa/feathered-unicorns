@@ -12,7 +12,7 @@ TAG: DEV ITEMS
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/TF2_Demoman_HolderInfo.TF2_Demoman_HolderInfo
 SLOT: Hat
-ITEM: /Game/Contributions/MellowshatDemo/Demo_MellowHat.Demo_MellowHat_C
+ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Demoman/Cosmetics/MellowshatDemo/Demo_MellowHat.Demo_MellowHat_C
 PLAYERS: MellowBomb
 TAG: DEV ITEMS
 
@@ -276,7 +276,7 @@ TAG: MEMORY MAKER (content creators)
 
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Engineer/TF2_Engineer_HolderInfo.TF2_Engineer_HolderInfo
 SLOT: Melee
-ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Memorymaker/Classes/Memory_maker_engie.Memory_maker_engie_C
+ITEM: /Game/tf2_commons_v142/Loadout/Weapons/MemoryMaker/Classes/Memory_maker_Engie.Memory_maker_Engie_C
 PLAYERS: @content_creators,@devs
 TAG: MEMORY MAKER (content creators)
 
