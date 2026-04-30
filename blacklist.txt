@@ -834,4 +834,9 @@ UID: olufkrpmtr3a0
 PUNISHMENT: BAN
 REASON: TOXICITY
 END_DATE: 0
+NAME: 00_Yam_00
+UID: suomyvlnja3be
+PUNISHMENT: BAN
+REASON: Inapporpriate PFP, can get unbanned when changed
+END_DATE: 0
 L!ListEnd
