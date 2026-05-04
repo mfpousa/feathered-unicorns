@@ -839,4 +839,9 @@ UID: suomyvlnja3be
 PUNISHMENT: BAN
 REASON: Inapporpriate PFP, can get unbanned when changed
 END_DATE: 0
+NAME: im.a.vr.nerd1989
+UID: wgxrszfqev258
+PUNISHMENT: BAN
+REASON: R-slur
+END_DATE: 1830297600
 L!ListEnd
