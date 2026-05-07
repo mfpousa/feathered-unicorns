@@ -846,8 +846,8 @@ REASON: R-slur
 END_DATE: 1830297600
 NAME: J
 UID: jzdvgylkxt2f5
-PUNISHMENT: BAN
-REASON: slurs
+PUNISHMENT: MUTE
+REASON: slurs, ban if escalates
 END_DATE: 1830297600
 NAME: glokk40
 UID: tqdyhphyby11f
