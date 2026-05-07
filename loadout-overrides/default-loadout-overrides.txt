@@ -435,3 +435,9 @@ SLOT: Hat
 ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/ShortnessOfBreath/ShortnessOfBreath.ShortnessOfBreath_C
 PLAYERS: SoapyPC,SoapyQuest
 TAG: DEV ITEMS
+
+CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Sniper/TF2_Sniper_HolderInfo.TF2_Sniper_HolderInfo
+SLOT: Primary
+ITEM: /Game/tf2_commons_v142/Loadout/Weapons/Huntsman/BP_Huntsman.BP_Huntsman_C
+PLAYERS: @devs
+TAG: UNDER DEVELOPMENT (future release)
