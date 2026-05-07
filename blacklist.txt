@@ -849,4 +849,14 @@ UID: jzdvgylkxt2f5
 PUNISHMENT: BAN
 REASON: slurs
 END_DATE: 1830297600
+NAME: glokk40
+UID: tqdyhphyby11f
+PUNISHMENT: BAN
+REASON: Ban evader
+END_DATE: 0
+NAME: CODZFAN97
+UID: iwtskbwxzp220
+PUNISHMENT: BAN
+REASON: Garret Alt, again
+END_DATE: 0
 L!ListEnd
