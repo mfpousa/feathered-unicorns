@@ -869,4 +869,9 @@ UID: iespvdortd174
 PUNISHMENT: MUTE
 REASON: TOXICITY
 END_DATE: 0
+NAME: Ink.plate.37
+UID: tmiaceqqym247
+PUNISHMENT: BAN
+REASON: homophobic
+END_DATE: 0
 L!ListEnd
