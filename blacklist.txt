@@ -874,4 +874,9 @@ UID: tmiaceqqym247
 PUNISHMENT: BAN
 REASON: homophobic
 END_DATE: 0
+NAME: lIlIIIlllIIIIl
+UID: kviexrxyzj218
+PUNISHMENT: BAN
+REASON: Mad racist
+END_DATE: 777600
 L!ListEnd
