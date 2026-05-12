@@ -878,5 +878,5 @@ NAME: lIlIIIlllIIIIl
 UID: kviexrxyzj218
 PUNISHMENT: BAN
 REASON: Mad racist
-END_DATE: 777600
+END_DATE: 0
 L!ListEnd
