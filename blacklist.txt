@@ -884,4 +884,9 @@ UID: dhhqixxqcv183
 PUNISHMENT: BAN
 REASON: BAN_EVADING
 END_DATE: 0
+NAME: xdkiller7
+UID: ughvwwuwob062
+PUNISHMENT: MUTE
+REASON: transphobic
+END_DATE: 0
 L!ListEnd
