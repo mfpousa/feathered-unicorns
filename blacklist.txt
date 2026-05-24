@@ -899,4 +899,9 @@ UID: ofmljjvuoh2ea
 PUNISHMENT: MUTE
 REASON: Racist
 END_DATE: 1861920000
+NAME: stillnotbannednggers
+UID: irioqeivjy2ef
+PUNISHMENT: BAN
+REASON: Ban evading, hard r username
+END_DATE: 0
 L!ListEnd
