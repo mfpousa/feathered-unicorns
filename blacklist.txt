@@ -904,4 +904,9 @@ UID: irioqeivjy2ef
 PUNISHMENT: BAN
 REASON: Ban evading, hard r username
 END_DATE: 0
+NAME: x67l
+UID: itnudzgbke199
+PUNISHMENT: BAN
+REASON: alt and racist
+END_DATE: 0
 L!ListEnd
