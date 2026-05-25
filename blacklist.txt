@@ -914,4 +914,14 @@ UID: dceoinxmki1c6
 PUNISHMENT: MUTE
 REASON: TOXICITY
 END_DATE: 0
+NAME: BraindeadJokester
+UID: sxxjkvjtpf38d
+PUNISHMENT: MUTE
+REASON: F-Slur
+END_DATE: 1861920000
+NAME: 1FckNigg3rs
+UID: itnudzgbke199
+PUNISHMENT: BAN
+REASON: Racist Username
+END_DATE: 0
 L!ListEnd
