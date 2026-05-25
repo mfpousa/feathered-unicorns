@@ -909,4 +909,9 @@ UID: itnudzgbke199
 PUNISHMENT: BAN
 REASON: alt and racist
 END_DATE: 0
+NAME: Godsnuta
+UID: dceoinxmki1c6
+PUNISHMENT: MUTE
+REASON: TOXICITY
+END_DATE: 0
 L!ListEnd
