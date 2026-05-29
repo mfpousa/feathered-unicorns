@@ -924,4 +924,9 @@ UID: itnudzgbke199
 PUNISHMENT: BAN
 REASON: Racist Username
 END_DATE: 0
+NAME: Deadshot2120
+UID: iagzxtcpok0b2
+PUNISHMENT: MUTE
+REASON: Spoke about "DNB" which, according to Weedeater, stands for "dead N-Word Babies", however DNB can stand for alot, so the mute was given not only as a precaution, but while Weed searches for more evidence as they also spoke about things like school shootings, however it was not filmed.
+END_DATE: 1861920000
 L!ListEnd
