@@ -369,11 +369,6 @@ UID: timxiizkju38e
 PUNISHMENT: BAN
 REASON: 
 END_DATE: 0
-NAME: DaHerbMan420
-UID: fquzxgtjpt136
-PUNISHMENT: BAN
-REASON: 
-END_DATE: 0
 NAME: colee.grev
 UID: klyyazkbwn07c
 PUNISHMENT: BAN
