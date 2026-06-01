@@ -939,4 +939,9 @@ UID: gddctbwzoc3ed
 PUNISHMENT: BAN
 REASON: said "Knicker'', trying to be funny, he isnt. Banned from server as well!
 END_DATE: 1861920000
+NAME: cameron.gamer.inf
+UID: gwscxtapwt0f6
+PUNISHMENT: BAN
+REASON: Accusing SoapySo and jack of false accusations the following being accusing them being racist, r@ped, and overall harassment.
+END_DATE: 0
 L!ListEnd
