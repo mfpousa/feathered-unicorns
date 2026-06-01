@@ -924,4 +924,14 @@ UID: iagzxtcpok0b2
 PUNISHMENT: MUTE
 REASON: Spoke about "DNB" which, according to Weedeater, stands for "dead N-Word Babies", however DNB can stand for alot, so the mute was given not only as a precaution, but while Weed searches for more evidence as they also spoke about things like school shootings, however it was not filmed.
 END_DATE: 1861920000
+NAME: Biohazardbottleranch
+UID: cduucdbswu2af
+PUNISHMENT: MUTE
+REASON: TOXICITY
+END_DATE: 1861920000
+NAME: x5l
+UID: pmdutpvycj199
+PUNISHMENT: BAN
+REASON: evading again
+END_DATE: 0
 L!ListEnd
