@@ -934,4 +934,9 @@ UID: pmdutpvycj199
 PUNISHMENT: BAN
 REASON: evading again
 END_DATE: 0
+NAME: EDWARDCOOLGUY
+UID: gddctbwzoc3ed
+PUNISHMENT: BAN
+REASON: said "Knicker'', trying to be funny, he isnt. Banned from server as well!
+END_DATE: 1861920000
 L!ListEnd
