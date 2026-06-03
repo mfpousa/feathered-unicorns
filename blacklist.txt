@@ -285,7 +285,7 @@ PUNISHMENT: BAN
 REASON: 
 END_DATE: 0
 NAME: Thisisntgoonofficial
-UID: Hurkqxxhml14b
+UID: hurkqxxhml14b
 PUNISHMENT: BAN
 REASON: BAN_EVADING
 END_DATE: 0
