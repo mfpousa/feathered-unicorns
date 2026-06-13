@@ -1009,4 +1009,9 @@ UID: sxvjfihqpf0df
 PUNISHMENT: MUTE
 REASON: Racist
 END_DATE: 1861920000
+NAME: PatriotGamer85
+UID: bqykjpxvfz31b
+PUNISHMENT: BAN
+REASON: underaged
+END_DATE: 1861920000
 L!ListEnd
