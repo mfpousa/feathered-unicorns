@@ -499,11 +499,6 @@ UID: pcibomkjti364
 PUNISHMENT: BAN
 REASON: 
 END_DATE: 0
-NAME: steellie
-UID: yegbvbxvkh3e1
-PUNISHMENT: BAN
-REASON: 
-END_DATE: 0
 NAME: Veerutheking123
 UID: rldorgfhjm1ef
 PUNISHMENT: BAN
