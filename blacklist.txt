@@ -1069,7 +1069,7 @@ UID: kbjugvkftc236
 PUNISHMENT: MUTE
 REASON: n word
 END_DATE: 1861920000
-NAME: ThatFNKFemboy
+NAME: ThatFKNFemboy
 UID: hezxyfmcpf0a9
 PUNISHMENT: BAN
 REASON: spreading exploits on youtube
