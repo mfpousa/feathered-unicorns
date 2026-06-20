@@ -1074,4 +1074,9 @@ UID: hezxyfmcpf0a9
 PUNISHMENT: BAN
 REASON: spreading exploits on youtube
 END_DATE: 1861920000
+NAME: noxide333
+UID: zgaitqovrg3bc
+PUNISHMENT: MUTE
+REASON: f slur
+END_DATE: 1861920000
 L!ListEnd
