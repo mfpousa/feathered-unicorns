@@ -1072,8 +1072,8 @@ END_DATE: 1861920000
 NAME: ThatFKNFemboy
 UID: hezxyfmcpf0a9
 PUNISHMENT: BAN
-REASON: spreading exploits on youtube
-END_DATE: 1861920000
+REASON: spreading exploits on youtube, ban evasion
+END_DATE: 0
 NAME: noxide333
 UID: zgaitqovrg3bc
 PUNISHMENT: MUTE
