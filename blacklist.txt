@@ -1104,4 +1104,9 @@ UID: bhbannysdm228
 PUNISHMENT: BAN
 REASON: BAN_EVADING
 END_DATE: 0
+NAME: RandyDandyShooter
+UID: bhbqnnysdm228
+PUNISHMENT: BAN
+REASON: alt of thatFKNfemboy
+END_DATE: 0
 L!ListEnd
