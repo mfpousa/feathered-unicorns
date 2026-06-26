@@ -1104,4 +1104,9 @@ UID: bhbqnnysdm228
 PUNISHMENT: BAN
 REASON: alt of thatFKNfemboy
 END_DATE: 0
+NAME: TheyCallMeTheHunter.
+UID: oddumrufmz3c6
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
 L!ListEnd
