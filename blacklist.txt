@@ -1104,4 +1104,9 @@ UID: bhbqnnysdm228
 PUNISHMENT: BAN
 REASON: alt of thatFKNfemboy
 END_DATE: 0
+NAME: Fast Fire 2.0
+UID: eojmzvgcev221
+PUNISHMENT: BAN
+REASON: Cheating
+END_DATE: 0
 L!ListEnd
