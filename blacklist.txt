@@ -1104,8 +1104,8 @@ UID: bhbqnnysdm228
 PUNISHMENT: BAN
 REASON: alt of thatFKNfemboy
 END_DATE: 0
-NAME: AndrethePettite
-UID: deciufytfy04c
+NAME: BennyRufus
+UID: yoyxmbratu348
 PUNISHMENT: BAN
 REASON: TOXICITY
 END_DATE: 0
