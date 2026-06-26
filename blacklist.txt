@@ -1084,4 +1084,19 @@ UID: uhvtybgcaa061
 PUNISHMENT: BAN
 REASON: BAN_EVADING
 END_DATE: 0
+NAME: Fast Fire
+UID: ahylrylckb3a5
+PUNISHMENT: BAN
+REASON: Teaching ppl how to use exploits
+END_DATE: 0
+NAME: Xangiex808
+UID: mfedeocccn255
+PUNISHMENT: MUTE
+REASON: N word in text
+END_DATE: 1861920000
+NAME: Biohazardbottleranch
+UID: cduucdbswu2af
+PUNISHMENT: MUTE
+REASON: N word
+END_DATE: 1861920000
 L!ListEnd
