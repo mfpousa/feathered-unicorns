@@ -384,11 +384,6 @@ UID: fetvkwyyyv078
 PUNISHMENT: BAN
 REASON: 
 END_DATE: 0
-NAME: tulup
-UID: fhnmwlfsyk29f
-PUNISHMENT: BAN
-REASON: BAN_EVADING
-END_DATE: 0
 NAME: blitz the rescue pup
 UID: txtxprnjdc2ae
 PUNISHMENT: BAN
