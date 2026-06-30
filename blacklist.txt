@@ -307,7 +307,7 @@ END_DATE: 0
 NAME: ozzie2015.8583
 UID: hpjbutxixu1a7
 PUNISHMENT: BAN
-REASON: 
+REASON: TOXICITY
 END_DATE: 0
 NAME: DedassSupreme
 UID: pcfrrbboka309
