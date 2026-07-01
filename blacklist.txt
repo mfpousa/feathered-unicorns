@@ -934,11 +934,6 @@ UID: gwscxtapwt0f6
 PUNISHMENT: BAN
 REASON: Accusing SoapySo and jack of false accusations the following being accusing them being racist, r@ped, and overall harassment.
 END_DATE: 0
-NAME: TheReal_SpamtonG.Spamton
-UID: lckyxxnggw3f0
-PUNISHMENT: MUTE
-REASON: N word
-END_DATE: 1861920000
 NAME: ripadolfhitIer
 UID: glhgsdfsfq353
 PUNISHMENT: BAN
@@ -1134,4 +1129,19 @@ UID: qfxvuxxpdb364
 PUNISHMENT: BAN
 REASON: BAN_EVADING
 END_DATE: 0
+NAME: Amandoo76
+UID: Ixrrudubpt3c4
+PUNISHMENT: MUTE
+REASON: hard r
+END_DATE: 1861920000
+NAME: combsfamily.2024
+UID: ccbpkizhgw36d
+PUNISHMENT: MUTE
+REASON: Slurs
+END_DATE: 1861920000
+NAME: EdgySpiderMonkey6373
+UID: nuokjczgie38f
+PUNISHMENT: MUTE
+REASON: Whispered the hard R
+END_DATE: 1861920000
 L!ListEnd
