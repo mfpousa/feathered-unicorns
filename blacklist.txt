@@ -1144,4 +1144,9 @@ UID: nuokjczgie38f
 PUNISHMENT: MUTE
 REASON: Whispered the hard R
 END_DATE: 1861920000
+NAME: TheReal_SpamtonG.Spamton
+UID: lckyxxnggw3f0
+PUNISHMENT: BAN
+REASON: Slurs and multiple reports
+END_DATE: 0
 L!ListEnd
