@@ -1199,4 +1199,9 @@ UID: jakrbubgro0d9
 PUNISHMENT: BAN
 REASON: NSFW pfp
 END_DATE: 0
+NAME: proptarget
+UID: gdwbnyjcep2f9
+PUNISHMENT: BAN
+REASON: metro alt
+END_DATE: 0
 L!ListEnd
