@@ -9,9 +9,6 @@ Configuration files for managing player access and loadouts for TFVR.
 > [!TIP]
 > It is recommended to edit the blacklist with [Our ban editor tool](https://github.com/realbucketofchicken/ban-list-editor).
 
-> [!WARNING]
-> Warning players isnt implemented yet!
-
 Players on the blacklist can be warned, muted or banned from the mod. Each entry needs a `NAME`, `UID` and `PUNISHMENT`. To ban a player, add a block:
 
 ```java
@@ -22,6 +19,9 @@ REASON:
 END_DATE: 0
 ```
 ### Let me break it down for you, mark:
+> [!WARNING]
+> Warning players isnt implemented yet!
+
 `NAME`: Convenient identifier for search in the banlist editor  
 `UID`: Unique player ID, used for identifying players  
 `PUNISHMENT`: Can be `BAN`, `WARN` or `MUTE`  
@@ -77,3 +77,7 @@ Any format works as long as it doesn't start with a keyword the parser recognize
 ### Multiple Override Files
 
 You can create additional override files alongside `default-loadout-overrides.txt` in the `loadout-overrides/` folder. To activate one, reference it in the **GameStateManager** inside the map. This gives you freedom to customize the game in your own map.
+
+## LLM disclosure
+LLMs were used when making parts of this repository, limited to the `tools/` directory and parts of this readme.  
+Related programs such as the [ban editor tool](https://github.com/realbucketofchicken/ban-list-editor) and TFVR itself are human-slop.
