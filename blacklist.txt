@@ -1234,4 +1234,9 @@ UID: ijcijvzatq0e7
 PUNISHMENT: MUTE
 REASON: TOXICITY
 END_DATE: 1785110400
+NAME: HerroCityWok
+UID: gnimnqvzmi3ad
+PUNISHMENT: BAN
+REASON: Alt of thatFKNfemboy
+END_DATE: 0
 L!ListEnd
