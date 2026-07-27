@@ -1239,4 +1239,21 @@ UID: gnimnqvzmi3ad
 PUNISHMENT: BAN
 REASON: Alt of thatFKNfemboy
 END_DATE: 0
+NAME: blackhawkftw
+UID: dxaqpkyrsmi35b
+PUNISHMENT: MUTE
+REASON: TOXICITY
+END_DATE: 0
 L!ListEnd
+
+
+
+
+
+
+
+
+
+
+
+
