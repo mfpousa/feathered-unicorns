@@ -1249,4 +1249,9 @@ UID: wrcahwrcma311
 PUNISHMENT: MUTE
 REASON: TOXICITY
 END_DATE: 1785888000
+NAME: NigerianBaboon76
+UID: odpkiyxteg136
+PUNISHMENT: BAN
+REASON: NSFW? pfp (Renaldo w/ cheeks out)
+END_DATE: 0
 L!ListEnd
