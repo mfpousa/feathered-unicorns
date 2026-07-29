@@ -1259,4 +1259,9 @@ UID: dxqpkyrsmi35b
 PUNISHMENT: BAN
 REASON: TOXICITY
 END_DATE: 0
+NAME: The_True_Monarch
+UID: zsjydmvxjw0d5
+PUNISHMENT: BAN
+REASON: Ban_Evader
+END_DATE: 0
 L!ListEnd
