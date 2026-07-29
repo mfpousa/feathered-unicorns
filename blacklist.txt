@@ -1254,4 +1254,9 @@ UID: odpkiyxteg136
 PUNISHMENT: BAN
 REASON: NSFW? pfp (Renaldo w/ cheeks out)
 END_DATE: 0
+NAME: blackhawkftw2
+UID: dxqpkyrsmi35b
+PUNISHMENT: BAN
+REASON: TOXICITY
+END_DATE: 0
 L!ListEnd
