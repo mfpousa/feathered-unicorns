@@ -904,11 +904,6 @@ UID: sxxjkvjtpf38d
 PUNISHMENT: MUTE
 REASON: F-Slur
 END_DATE: 1861920000
-NAME: 1FckNigg3rs
-UID: itnudzgbke199
-PUNISHMENT: BAN
-REASON: Racist Username
-END_DATE: 0
 NAME: Deadshot2120
 UID: iagzxtcpok0b2
 PUNISHMENT: BAN
@@ -1018,7 +1013,7 @@ NAME: Cailip
 UID: sucrsxdnmj1da
 PUNISHMENT: MUTE
 REASON: TOXICITY
-END_DATE: 0
+END_DATE: 1861920000
 NAME: SweetLuvin
 UID: irtzhglhw271
 PUNISHMENT: BAN
@@ -1049,16 +1044,6 @@ UID: dcfzmypbgr3a9
 PUNISHMENT: MUTE
 REASON: TOXICITY
 END_DATE: 1861920000
-NAME: Tompearl9009
-UID: sucrsxdnmj1da
-PUNISHMENT: MUTE
-REASON: TOXICITY
-END_DATE: 1861920000
-NAME: bullseyeVR
-UID: kbjugvkftc236
-PUNISHMENT: MUTE
-REASON: n word
-END_DATE: 1861920000
 NAME: ThatFKNFemboy
 UID: hezxyfmcpf0a9
 PUNISHMENT: BAN
@@ -1083,11 +1068,6 @@ NAME: Xangiex808
 UID: mfedeocccn255
 PUNISHMENT: MUTE
 REASON: N word in text
-END_DATE: 1861920000
-NAME: Biohazardbottleranch
-UID: cduucdbswu2af
-PUNISHMENT: MUTE
-REASON: N word
 END_DATE: 1861920000
 NAME: RandyDandyShooter
 UID: bhbqnnysdm228
@@ -1201,7 +1181,7 @@ REASON: NSFW pfp
 END_DATE: 0
 NAME: blackhawkftw2
 UID: dxqpkyrsmi35b
-PUNISHMENT: MUTE
+PUNISHMENT: BAN
 REASON: TOXICITY
 END_DATE: 1784851200
 NAME: criticalMad911
@@ -1239,11 +1219,6 @@ UID: gnimnqvzmi3ad
 PUNISHMENT: BAN
 REASON: Alt of thatFKNfemboy
 END_DATE: 0
-NAME: blackhawkftw
-UID: dxqpkyrsmi35b
-PUNISHMENT: MUTE
-REASON: TOXICITY
-END_DATE: 0
 NAME: hommadeparticleaccelerator
 UID: wrcahwrcma311
 PUNISHMENT: MUTE
@@ -1253,11 +1228,6 @@ NAME: NigerianBaboon76
 UID: odpkiyxteg136
 PUNISHMENT: BAN
 REASON: NSFW? pfp (Renaldo w/ cheeks out)
-END_DATE: 0
-NAME: blackhawkftw2
-UID: dxqpkyrsmi35b
-PUNISHMENT: BAN
-REASON: TOXICITY
 END_DATE: 0
 NAME: The_True_Monarch
 UID: zsjydmvxjw0d5
