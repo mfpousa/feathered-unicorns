@@ -1254,9 +1254,4 @@ UID: kvezywnwsw2c7
 PUNISHMENT: MUTE
 REASON: TOXICITY
 END_DATE: 1786320000
-NAME: Sam_the_eevee
-UID: igcsylbjvc2a6
-PUNISHMENT: BAN
-REASON: needs to change pfp and name cuz its zoophile stuff rn(icky)
-END_DATE: 0
 L!ListEnd
