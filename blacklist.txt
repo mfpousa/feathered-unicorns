@@ -1274,4 +1274,9 @@ UID: djxjurfevq22c
 PUNISHMENT: BAN
 REASON: TOXICITY
 END_DATE: 0
+NAME: sam_the_eevee
+UID: igcsylbjvc2a6
+PUNISHMENT: BAN
+REASON: inappropriate profile
+END_DATE: 0
 L!ListEnd
