@@ -1279,4 +1279,9 @@ UID: igcsylbjvc2a6
 PUNISHMENT: BAN
 REASON: inappropriate profile
 END_DATE: 0
+NAME: jdgotfaith2000099
+UID: ucbspviteilad
+PUNISHMENT: MUTE
+REASON: TOXICITY
+END_DATE: 1787443200
 L!ListEnd
