@@ -1309,4 +1309,9 @@ UID: uvkdjjvmjr3f6
 PUNISHMENT: BAN
 REASON: BAN_EVADING
 END_DATE: 0
+NAME: balencidemon
+UID: kinctthmij33d
+PUNISHMENT: BAN
+REASON: n word
+END_DATE: 0
 L!ListEnd
