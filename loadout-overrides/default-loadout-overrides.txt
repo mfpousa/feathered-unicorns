@@ -4,12 +4,6 @@ ITEM: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/Cosmetics/RandyDev/Bazaar_
 PLAYERS: Randy
 TAG: DEV ITEMS
 
-﻿CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Soldier/TF2_Soldier_HolderInfo.TF2_Soldier_HolderInfo
-SLOT: Hat
-ITEM: /tf2_commons_v142/Loadout/Weapons/SpylemVow/SpylemVow.SpylemVow_C
-PLAYERS: Bucket
-TAG: DEV ITEMS
-
 CLASS: /Game/tf2_commons_v142/Loadout/Loadouts/Scout/TF2_Scout_HolderInfo.TF2_Scout_HolderInfo
 SLOT: Hat
 ITEM: /Game/Contributions/BucketOfChickenDev/BucketOfChicken_DevHat.BucketOfChicken_DevHat_C
