@@ -1,5 +1,4 @@
-L!ListBegin
-NAME: Konman1211
+L!ListBeginNAME: Konman1211
 UID: tfvygrbnst0eb
 PUNISHMENT: BAN
 REASON: 
