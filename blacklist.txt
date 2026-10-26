@@ -1444,4 +1444,9 @@ UID: idkfuckingknow
 PUNISHMENT: BAN
 REASON: super not cool
 END_DATE: 0
+NAME: testingtest
+UID: idkfuckingknow
+PUNISHMENT: MUTE
+REASON: super not cool
+END_DATE: 1795651200
 L!ListEnd
