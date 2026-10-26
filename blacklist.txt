@@ -1464,4 +1464,9 @@ UID: gad
 PUNISHMENT: MUTE
 REASON: test ban
 END_DATE: 0
+NAME: adfa
+UID: gad
+PUNISHMENT: MUTE
+REASON: test mute
+END_DATE: 0
 L!ListEnd
