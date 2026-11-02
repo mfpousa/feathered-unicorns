@@ -1444,4 +1444,9 @@ UID: icjvhbhmyy3d6
 PUNISHMENT: MUTE
 REASON: racism
 END_DATE: 1796083200
+NAME: Chicken_mann
+UID: nvpdomtcwb2fb
+PUNISHMENT: BAN
+REASON: Slur
+END_DATE: 0
 L!ListEnd
